@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <?php require 'header.php' ?>
+    <?php require 'template/header.php' ?>
   </head>
   <body>
     <div class="container-fluid">
@@ -28,6 +28,6 @@
         </div>
       </div>
     </div>
-    <?php require "jQueryScripts.php" ?>
+    <?php require "template/jQueryScripts.php" ?>
   </body>
 </html>
