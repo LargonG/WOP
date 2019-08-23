@@ -58,7 +58,7 @@
 <div id="authorisewindow">
 <div style="text-align: center">Авторизация</div>
 <br>
-  <?php require "/php/login.php" ?>
+  <?php require "login.php" ?>
   <form action = "index.php" method = "POST">
     <input type="text" class="authinput" placeholder="Логин или email" name="usname" <?php echo @$_POST['usname']; ?>>
     <br><br>
