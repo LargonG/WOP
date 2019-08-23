@@ -5,18 +5,17 @@
   </head>
   <body>
     <div class="navbar header">
-      <a href="#" class="navbar-item link">
+      <a href="index.php" class="navbar-item link">
          WOP
       </a>
-    </div>
     </div>
     <div class="container context">
       <div class="row">
         <div class="col-8 main">
-          CONTENT
+          <?php require "texts/welcome-text.php" ?>
         </div>
         <div class="col sidebar">
-          SIDEBAR
+          <?php require "template/nav.php" ?>
         </div>
       </div>
     </div>
