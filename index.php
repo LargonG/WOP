@@ -4,12 +4,11 @@
     <?php require 'template/header.php' ?>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col header">
-          HEADER
-        </div>
-      </div>
+    <div class="navbar header">
+      <a href="#" class="navbar-item link">
+         WOP
+      </a>
+    </div>
     </div>
     <div class="container context">
       <div class="row">
