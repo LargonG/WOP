@@ -5,10 +5,9 @@
   </head>
   <body>
     <div class="navbar header">
-      <a href="index.php" class="navbar-item link">
-         WOP
-      </a>
+      <?php require "texts/header-content.php" ?>
     </div>
+    <?php require "texts/singin.php" ?>
     <div class="container context">
       <div class="row">
         <div class="col-8 main">
