@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <?php require 'template/header.php' ?>
+    <?php require 'templates/header.php' ?>
   </head>
   <body>
     <div class="navbar header">
-      <?php require "texts/header-content.php" ?>
+      <?php require "templates/header-content.php" ?>
     </div>
-    <?php require "texts/singin.php" ?>
+    <?php require "templates/singin.php" ?>
     <div class="container context">
       <div class="row">
         <div class="col-8 main">
           <?php require "texts/welcome-text.php" ?>
+          
         </div>
         <div class="col sidebar">
-          <?php require "template/nav.php"?>
+          <?php require "templates/nav.php"?>
         </div>
       </div>
     </div>
@@ -25,6 +26,6 @@
         </div>
       </div>
     </div>
-    <?php require "template/jQueryScripts.php" ?>
+    <?php require "templates/jQueryScripts.php" ?>
   </body>
 </html>
