@@ -3,14 +3,15 @@
 <meta name="keywords" content="программирование, олимпиады, олимпиадное программирование, алгритмы">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="template/main.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<script src='http://worldofop.ru/template/main.js'></script>
 <title>Мир олимпиадного программирования</title>
 <style media="screen">
 html, body {
   margin: 0;
   padding: 0;
   color: white;
-  font: 400 1.2em Arial;
+  font: 400 1.2em "Source Sans Pro";
   background: #111116;
 }
 .link {
@@ -51,5 +52,13 @@ a:hover {
   margin-top: 1vh;
   min-height: 21vh;
   background: #222;
+}
+
+.regwind
+{
+  min-height: 70vh;
+  margin-top: 5vh;
+  background: #222226;
+  width: 50%;
 }
 </style>

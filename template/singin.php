@@ -23,6 +23,7 @@
     line-height: 6em;
     font-weight: 600;
     padding: 5px;
+    border-radius: 10px;
   }
   .authbutton
   {
@@ -33,6 +34,7 @@
     font-size: 0.7em;
     font-weight: 600;
     border: none;
+    border-radius: 10px;
   }
   .smalltext
   {
@@ -69,6 +71,6 @@
     </div>
   </form>
   <br>
-  <div class="smalltext">Первый&nbspраз&nbspздесь?<br><br><a href="/register" class="smalllink">Создайте&nbspпрофиль</a> прямо&nbspсейчас!</div>
+  <div class="smalltext">Первый&nbspраз&nbspздесь?<br><br><a href="/signup" class="smalllink">Создайте&nbspпрофиль</a> прямо&nbspсейчас!</div>
 </div>
 <script>authorise_roll();</script>

@@ -16,7 +16,7 @@
   }
 </style>
 
-<a href="index.php" class="navbar-item link">
+<a href="http://worldofop.ru" class="navbar-item link">
      WOP
   </a>
 <a href="#" class="navbar-item authorised" onclick="authorise_roll()">
