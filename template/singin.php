@@ -58,24 +58,17 @@
 <div id="authorisewindow">
 <div style="text-align: center">Авторизация</div>
 <br>
-  <input type="text" class="authinput" placeholder="Логин или email">
-  <br><br>
-  <input type="password" class="authinput" placeholder="Пароль">
-  <br><br>
-  <div style="width: 100%" align=center>
-    <button class="authbutton">Войти</button>
-  </div>
+  <?php require "/php/login.php" ?>
+  <form action = "index.php" method = "POST">
+    <input type="text" class="authinput" placeholder="Логин или email" name="usname" <?php echo @$_POST['usname']; ?>>
+    <br><br>
+    <input type="password" class="authinput" placeholder="Пароль" name="pass">
+    <br><br>
+    <div style="width: 100%" align=center>
+      <button class="authbutton" type="submit" name="sub" >Войти</button>
+    </div>
+  </form>
   <br>
   <div class="smalltext">Первый&nbspраз&nbspздесь?<br><br><a href="/register" class="smalllink">Создайте&nbspпрофиль</a> прямо&nbspсейчас!</div>
 </div>
-<script type="text/javascript">
-  function authorise_roll()
-  {
-      var form = document.getElementById('authorisewindow').style;
-      if (form.top == '-350px')
-          form.top = '70px';
-      else
-          form.top = '-350px';
-  }
-  authorise_roll();
-</script>
+<script>authorise_roll();</script>
