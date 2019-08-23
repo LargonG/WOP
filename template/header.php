@@ -5,6 +5,7 @@
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>Мир олимпиадного программирования</title>
 <style media="screen">
+
 html, body {
   margin: 0;
   padding: 0;
@@ -12,18 +13,20 @@ html, body {
   font: 400 1.2em Arial;
   background: #111116;
 }
-
-.link {
+a {
   color: white;
   transition: 0.5s;
-  font-size: 1.5em;
-  font-weight: 1000;
-  margin-left: 5%;
 }
 
-.link:hover {
-  color: #999;
+a:hover {
+  color: #555;
   text-decoration: none;
+}
+
+.link {
+  font-size: 2em;
+  font-weight: 1000;
+  margin-left: 5%;
 }
 
 .header {
@@ -39,17 +42,10 @@ html, body {
   background: #222226;
 }
 
-.sidebar, .sidebar-2 {
-  margin-left: 1%;
-  background: #222;
-}
-
 .sidebar {
+  margin-left: 1%;
   min-height: 40vh;
-}
-
-.sidebar-2 {
-  min-height: 40vh;
+  background: #222;
 }
 
 .footer {
