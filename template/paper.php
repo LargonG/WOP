@@ -13,10 +13,10 @@
         <div class="col">
 
         </div>
-        <div class="col-md-9 col-12 main">
+        <div class="col-xl-9 col-12 main">
           <?php include $_GET['filename'] ?>
         </div>
-        <div class="col-md-2 col-12 sidebar">
+        <div class="col-xl-2 col sidebar">
           <?php require $_SERVER['DOCUMENT_ROOT']."/template/nav.php" ?>
         </div>
       </div>
