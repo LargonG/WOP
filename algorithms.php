@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="navbar header">
-      <?php require $_SERVER['DOCUMENT_ROOT'].'/texts/header-content.php' ?>
+      <?php require $_SERVER['DOCUMENT_ROOT'].'/template/header-content.php' ?>
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/singin.php' ?>
     <div class="container context">
