@@ -69,7 +69,7 @@
     </div>
   </form>
   <br>
-  <div class="smalltext">Первый&nbspраз&nbspздесь?<br><br><a href="/signup" class="smalllink">Создайте&nbspпрофиль</a> прямо&nbspсейчас!</div>
+  <div class="smalltext">Первый&nbspраз&nbspздесь?<br><br><a href="/signup/signup.php" class="smalllink">Создайте&nbspпрофиль</a> прямо&nbspсейчас!</div>
 </div>
 <script type="text/javascript">
   function authorise_roll()

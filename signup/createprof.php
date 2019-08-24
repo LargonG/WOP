@@ -1,5 +1,5 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'].'/template/dbase.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
     if (isset($_POST['sub']))
     {
         $issues = array();
@@ -7,10 +7,10 @@
         $email = trim($_POST['email']);
         $pass = $_POST['pass'];
         $rpass = $_POST['r_pass'];
-        
+
         if (strlen($login) == 0)
             $issues[] = 'Логин не может быть пустым.';
-        
+
         if (strlen($login) < 6)
             $issues[] = 'Длина логина должна быть не меньше 6 символов.';
 
@@ -22,7 +22,7 @@
 
         if (R::findOne('userlogindata', "email = ?", array($email)))
             $issues[] = 'Аккаунт, привязанный к этому E-mail уже существует.';
-        
+
         if (strlen($pass) < 6)
             $issues[] = 'В целях вашей безопасности, пароль должен не короче 6 символов.';
 
