@@ -1,8 +1,7 @@
 <?php
-  if(!isset($_SESSION)) {
-     session_start();
+  require $_SERVER['DOCUMENT_ROOT'].'/template/login.php';
+  if(entered()) {
+    setcookie('name', $_POST['usname'], time() + (86400 * 30));
   }
-  if($_SESSION['name']) {
-    setcookie('name', $_SESSION['name'], time() + (86400 * 30));
-  }
+  header("Refresh:0; url=index.php");
 ?>

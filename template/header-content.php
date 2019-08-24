@@ -19,7 +19,7 @@
 
 <a href="http://worldofop.ru" class="navbar-item link">
      WOP
-  </a>
+</a>
 <?php if (!$_COOKIE['name']): ?>
 <div class="navbar-item authorised" onclick="authorise_roll()">
    Вы&nbspиспользуете&nbspгостевой доступ<br>Авторизуйтесь!
