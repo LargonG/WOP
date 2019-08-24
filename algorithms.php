@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <?php require 'templates/header.php' ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/header.php' ?>
   </head>
   <body>
     <div class="navbar header">
-      <?php require "templates/header-content.php" ?>
+      <?php require $_SERVER['DOCUMENT_ROOT'].'/texts/header-content.php' ?>
     </div>
-    <?php require "templates/singin.php" ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/singin.php' ?>
     <div class="container context">
       <div class="row">
         <div class="col-8 main">
-          <?php require "texts/algo-text.php" ?>
+          <?php require $_SERVER['DOCUMENT_ROOT'].'/texts/algo-text.php' ?>
+
         </div>
         <div class="col sidebar">
-          <?php require "templates/nav.php" ?>
+          <?php require $_SERVER['DOCUMENT_ROOT'].'/template/nav.php'?>
         </div>
       </div>
     </div>
@@ -25,6 +26,6 @@
         </div>
       </div>
     </div>
-    <?php require "templates/jQueryScripts.php" ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.php' ?>
   </body>
 </html>
