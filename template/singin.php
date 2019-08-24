@@ -73,4 +73,14 @@
   <br>
   <div class="smalltext">Первый&nbspраз&nbspздесь?<br><br><a href="/signup" class="smalllink">Создайте&nbspпрофиль</a> прямо&nbspсейчас!</div>
 </div>
-<script>authorise_roll();</script>
+<script type="text/javascript">
+  function authorise_roll()
+  {
+      var form = document.getElementById('authorisewindow').style;
+      if (form.top == '-350px')
+          form.top = '70px';
+      else
+          form.top = '-350px';
+  }
+  authorise_roll();
+</script>

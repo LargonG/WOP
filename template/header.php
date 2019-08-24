@@ -4,14 +4,13 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-<script src='http://worldofop.ru/template/main.js'></script>
 <title>Мир олимпиадного программирования</title>
 <style media="screen">
 html, body {
   margin: 0;
   padding: 0;
   color: white;
-  font: 400 1.2em "Source Sans Pro";
+  font: 400 1.2em Arial;
   background: #111116;
 }
 .link {
