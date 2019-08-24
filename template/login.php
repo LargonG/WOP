@@ -20,7 +20,7 @@
         $usname = trim($_POST['usname']);
         $pass = $_POST['pass'];
 
-        if ($usname != '')
+        if (usname != '')
         {
             $user = R::findOne('userlogindata', 'username = ?', array($_POST['usname']));
             if (!$user) {

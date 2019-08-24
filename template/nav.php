@@ -6,7 +6,8 @@
     font-size: 1.5em;
   }
   .navigation-li {
-    margin-top: 0.5vh;
+    margin-top: 1vh;
+    line-height: 100%;
   }
 </style>
 
@@ -16,4 +17,5 @@
   <li class="navigation-li"><a href="/">Задачи</a></li>
   <li class="navigation-li"><a href="/">Контесты</a></li>
   <li class="navigation-li"><a href="/">Досуг</a></li>
+  <li class="navigation-li"><a href="/">Рассписание олимпиад</a></li>
 </ul>

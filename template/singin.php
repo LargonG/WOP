@@ -59,7 +59,7 @@
 <div id="authorisewindow">
 <div style="text-align: center">Авторизация</div>
 <br>
-  <form action = "setconfig.php" method = "POST">
+  <form action = "/setconfig.php" method = "POST">
     <input type="text" class="authinput" placeholder="Логин или email" name="usname" <?php echo @$_POST['usname']; ?>>
     <br><br>
     <input type="password" class="authinput" placeholder="Пароль" name="pass">
