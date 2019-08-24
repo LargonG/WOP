@@ -9,6 +9,3 @@ krewaz:
     5. Онлайн/Оффлайн
     6. Аватар профиля
 Largon:
-1) решиться по поводу поддержки олимпиад
-2) попробуй написать кастомный скроллбар
-https://css-tricks.com/snippets/sass/custom-scrollbars-mixin/

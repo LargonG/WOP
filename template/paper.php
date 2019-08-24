@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT']."/setconfig.php"?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
