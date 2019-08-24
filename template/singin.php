@@ -7,7 +7,6 @@
     right: 0px;
     height: 350px;
     width: 300px;
-    background: rgb(255, 255, 255);
     z-index: 99999;
     background: #222226;
     transition: 0.5s;

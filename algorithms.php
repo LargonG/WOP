@@ -2,6 +2,7 @@
 <html lang="ru" dir="ltr">
   <head>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/header.php' ?>
+    <title>Мир олимпиадного программирования - Алгоритмы</title>
   </head>
   <body>
     <div class="navbar header">
@@ -10,7 +11,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/singin.php' ?>
     <div class="container context">
       <div class="row">
-        <div class="col-8 main">
+        <div class="col-md-8 col-12 main">
           <?php require $_SERVER['DOCUMENT_ROOT'].'/texts/algo-text.php' ?>
 
         </div>

@@ -12,8 +12,8 @@
 
 
 <ul class="navigation-ul">
-  <li class="navigation-li"><a href="algorithms.php">Алгоритмы</a></li>
-  <li class="navigation-li"><a href="#">Задачи</a></li>
-  <li class="navigation-li"><a href="#">Контесты</a></li>
-  <li class="navigation-li"><a href="#">Досуг</a></li>
+  <li class="navigation-li"><a href="/algorithms.php">Алгоритмы</a></li>
+  <li class="navigation-li"><a href="/">Задачи</a></li>
+  <li class="navigation-li"><a href="/">Контесты</a></li>
+  <li class="navigation-li"><a href="/">Досуг</a></li>
 </ul>
