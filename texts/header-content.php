@@ -13,12 +13,13 @@
   {
     text-decoration: none;
     color: #999;
+    cursor: pointer;
   }
 </style>
 
 <a href="http://worldofop.ru" class="navbar-item link">
      WOP
   </a>
-<a href="#" class="navbar-item authorised" onclick="authorise_roll()">
+<div href="#" class="navbar-item authorised" onclick="authorise_roll()">
    Вы&nbspиспользуете&nbspгостевой доступ<br>Авторизуйтесь!
-</a>
+</div>
