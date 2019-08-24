@@ -10,7 +10,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     margin: 0;
     padding: 0;
     color: white;
-    font: 400 1.2em Arial;
+    font: 400 1.2em 'Source Sans Pro';
     background: #111116;
 
     scrollbar-face-color: #999;
