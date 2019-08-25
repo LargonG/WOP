@@ -5,7 +5,7 @@
     top: -350px;
     padding: 30px;
     right: 0px;
-    height: 350px;
+    min-height: 350px;
     width: 300px;
     z-index: 99999;
     background: #222226;
@@ -58,6 +58,7 @@
 
 <div id="authorisewindow">
 <div style="text-align: center">Авторизация</div>
+<div class="smalltext"><?php if (isset($_COOKIE['logsuccess'])) if ($_COOKIE['logsuccess'] == false) echo 'Неверный логин или пароль. Повторите попытку входа.'; ?></div>
 <br>
   <form action = "/setconfig.php" method = "POST">
     <input type="text" class="authinput" placeholder="Логин или email" name="usname" <?php echo @$_POST['usname']; ?>>
