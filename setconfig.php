@@ -30,6 +30,6 @@
     setcookie('logsuccess', 1, time() + (86400 * 30));
   }
   else
-    setcookie('logsuccess', 0, time() + (86400 * 30));
+    setcookie('logsuccess', 0, time() + 60);
   header("Refresh:0; url=index.php");
 ?>
