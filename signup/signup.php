@@ -70,6 +70,9 @@
     transition: 0.5s;
     font-size: 0.7em;
   }
+  textarea:focus, input:focus{
+outline: none;
+}
   </style>
 
 <a href="http://worldofop.ru" class="navbar-item link">

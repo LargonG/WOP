@@ -54,6 +54,9 @@
     color: #999;
     text-decoration: none;
   }
+  textarea:focus, input:focus{
+    outline: none;
+  }
 </style>
 
 <div id="authorisewindow">
@@ -69,7 +72,7 @@
 </div>
 <br>
   <form action = "/setconfig.php" method = "POST">
-    <input type="text" class="authinput" placeholder="Логин или email" name="usname" <?php echo @$_POST['usname']; ?>>
+    <input type="text" class="authinput" placeholder="Логин или email" name="usname" value="<?php if (isset($_COOKIE['lastenteredlogin'])) echo $_COOKIE['lastenteredlogin']; ?>">
     <br><br>
     <input type="password" class="authinput" placeholder="Пароль" name="pass">
     <br><br>

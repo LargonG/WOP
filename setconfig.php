@@ -26,10 +26,14 @@
       }
   }
   if(entered()) {
-    setcookie('name', $_POST['usname'], time() + (86400 * 30)); //тебе не кажется, что 30 дней жирновато?
-    setcookie('logsuccess', 1, time() + (86400 * 30));
+    setcookie('name', $_POST['usname'], time() + (86400 * 30), '/'); //тебе не кажется, что 30 дней жирновато?
+    setcookie('logsuccess', 1, time() + (86400 * 30), '/');
+    setcookie('lastenteredlogin', $_POST['usname'], time() + (86400 * 30), '/');
   }
   else
-    setcookie('logsuccess', 0, time() + 60);
+  {
+    setcookie('logsuccess', 0, time() + 60, '/');
+    setcookie('lastenteredlogin', $_POST['usname'], time() + 60, '/');
+  }
   header("Refresh:0; url=index.php");
 ?>
