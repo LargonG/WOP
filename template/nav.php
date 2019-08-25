@@ -17,5 +17,5 @@
   <li class="navigation-li"><a href="/">Задачи</a></li>
   <li class="navigation-li"><a href="/">Контесты</a></li>
   <li class="navigation-li"><a href="/">Досуг</a></li>
-  <li class="navigation-li"><a href="/">Рассписание олимпиад</a></li>
+  <li class="navigation-li"><a href="/">Расписание олимпиад</a></li>
 </ul>
