@@ -21,10 +21,8 @@
       </div>
     </div>
     <div class="container footer">
-      <div class="row">
-        <div class="col">
-          FOOTER
-        </div>
+      <div class="row" style="padding: 10px;">
+        <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer-content.php"; ?>
       </div>
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.php' ?>
