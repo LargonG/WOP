@@ -1,6 +1,6 @@
 # WOP
 World of olimpiad programming<br/>
 # TODO
-<h1>Dimazila123</h1>
-<h1>Krewaz</h1>
-<h1>LargonG</h1>
+<h2>Dimazila123</h2>
+<h2>Krewaz</h2>
+<h2>LargonG</h2>
