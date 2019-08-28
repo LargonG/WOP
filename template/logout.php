@@ -17,5 +17,11 @@ if (isset($_COOKIE['logsuccess']))
     unset($_COOKIE['logsuccess']);
     setcookie('logsuccess', null, -1, '/');
 }
+
+if (isset($_COOKIE['lighttheme']))
+{
+    unset($_COOKIE['lighttheme']);
+    setcookie('lighttheme', null, -1, '/');
+}
 header("Refresh: 0; url=http://worldofop.ru/index.php");
 ?>

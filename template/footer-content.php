@@ -55,19 +55,19 @@
     <b>Мы в соцсетях:</b><br><br>
     <span class="snetlink">
         <a href="#" title="Мы Вконтакте">
-            <img src="http://worldofop.ru/imgs/vklink.png" class="snetlink">
+            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://worldofop.ru/imgs/vklink.png"; else echo "http://worldofop.ru/imgs/dvklink.png"; ?> class="snetlink">
         </a>
     </span>
     
     <span class="snetlink">
         <a href="#" title="Мы на Facebook">
-            <img src="http://worldofop.ru/imgs/fblink.png" class="snetlink">
+            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://worldofop.ru/imgs/fblink.png"; else echo "http://worldofop.ru/imgs/dfblink.png"; ?> class="snetlink">
         </a>
     </span>
 
     <span class="snetlink">
         <a href="#" title="Мы на Youtube">
-            <img src="http://worldofop.ru/imgs/ytlink.png" class="snetlink">
+            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://worldofop.ru/imgs/ytlink.png"; else echo "http://worldofop.ru/imgs/dytlink.png"; ?> class="snetlink">
         </a>
     </span>
     <br><br><br>
