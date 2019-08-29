@@ -47,6 +47,6 @@
 </div>
 <?php else: ?>
 <div class="navbar-item" align=center>
-  <?php echo 'Авторизован как <a class="authorised" style="font-size: 1em" href="#">'.$_COOKIE['name'].'</a><br><a class="authorised" href="template/logout.php">Выйти</a><a class="authorised" href="template/change-theme.php">&nbsp;&nbsp;&nbsp;&nbsp;Сменить тему</a>'; ?>
+  <?php echo 'Авторизован как <a class="authorised" style="font-size: 1em" href="#">'.$_COOKIE['name'].'</a><br><a class="authorised" href="/template/logout.php">Выйти</a><a class="authorised" href="/template/change-theme.php">&nbsp;&nbsp;&nbsp;&nbsp;Сменить тему</a>'; ?>
 </div>
 <?php endif; ?>
