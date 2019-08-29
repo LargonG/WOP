@@ -1,5 +1,5 @@
-# WOP
-World of olimpiad programming<br/>
+# ProHard
+ProHardInf<br/>
 # TODO
 <h2>Dimazila123</h2>
 <ol>
