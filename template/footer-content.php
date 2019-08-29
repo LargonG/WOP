@@ -55,19 +55,19 @@
     <b>Мы в соцсетях:</b><br><br>
     <span class="snetlink">
         <a href="#" title="Мы Вконтакте">
-            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://worldofop.ru/imgs/vklink.png"; else echo "http://worldofop.ru/imgs/dvklink.png"; ?> class="snetlink">
+            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://prohardinf.ru/imgs/vklink.png"; else echo "http://prohardinf.ru/imgs/dvklink.png"; ?> class="snetlink">
         </a>
     </span>
     
     <span class="snetlink">
         <a href="#" title="Мы на Facebook">
-            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://worldofop.ru/imgs/fblink.png"; else echo "http://worldofop.ru/imgs/dfblink.png"; ?> class="snetlink">
+            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://prohardinf.ru/imgs/fblink.png"; else echo "http://prohardinf.ru/imgs/dfblink.png"; ?> class="snetlink">
         </a>
     </span>
 
     <span class="snetlink">
         <a href="#" title="Мы на Youtube">
-            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://worldofop.ru/imgs/ytlink.png"; else echo "http://worldofop.ru/imgs/dytlink.png"; ?> class="snetlink">
+            <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://prohardinf.ru/imgs/ytlink.png"; else echo "http://prohardinf.ru/imgs/dytlink.png"; ?> class="snetlink">
         </a>
     </span>
     <br><br><br>

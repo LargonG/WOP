@@ -23,5 +23,5 @@ if (isset($_COOKIE['lighttheme']))
     unset($_COOKIE['lighttheme']);
     setcookie('lighttheme', null, -1, '/');
 }
-header("Refresh: 0; url=http://worldofop.ru/index.php");
+header("Refresh: 0; url=http://prohardinf.ru/index.php");
 ?>

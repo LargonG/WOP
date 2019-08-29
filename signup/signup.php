@@ -75,7 +75,7 @@ outline: none;
 }
   </style>
 
-<a href="http://worldofop.ru" class="navbar-item link">
+<a href="http://prohardinf.ru" class="navbar-item link">
      WOP
   </a>
     </div>

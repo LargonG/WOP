@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="http://worldofop.ru/imgs/tablogo.png">
+<link rel="shortcut icon" href="http://prohardinf.ru/imgs/tablogo.png">
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <?php if (!isset($_COOKIE['lighttheme'])): ?>
 <style media="screen">

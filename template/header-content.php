@@ -38,7 +38,7 @@
 </style>
 <?php endif; ?>
 
-<a href="http://worldofop.ru" class="navbar-item link">
+<a href="http://prohardinf.ru" class="navbar-item link">
      WOP
 </a>
 <?php if (!$_COOKIE['name']): ?>

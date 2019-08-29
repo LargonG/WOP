@@ -6,5 +6,5 @@ if (isset($_COOKIE['lighttheme']))
 }
 else
     setcookie('lighttheme', '123', time() + 36000, '/'); //на год
-header("Refresh: 0;url=http://worldofop.ru/index.php");
+header("Refresh: 0;url=http://prohardinf.ru/index.php");
 ?>
