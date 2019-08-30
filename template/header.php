@@ -6,17 +6,13 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="http://prohardinf.ru/imgs/tablogo.png">
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-<?php if (!isset($_COOKIE['lighttheme'])): ?>
 <style media="screen">
   html, body {
     margin: 0;
     padding: 0;
-    color: white;
-    background: #111116;
     font: 400 1.2em 'Source Sans Pro';
-    scrollbar-face-color: #999;
-    scrollbar-track-color: #333336;
   }
+
   .link {
     font-size: 2em;
     font-weight: 1000;
@@ -24,16 +20,13 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
   }
 
   a {
-    color: white;
     transition: 0.5s;
   }
   a:hover {
-    color: #555;
     text-decoration: none;
   }
 
   .header {
-    background: #222;
     z-index: 9999999;
   }
   .context {
@@ -42,32 +35,66 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
   .main {
     min-height: 70vh;
-    background: #222226;
     z-index: 9999;
     overflow-x: hidden;
   }
 
   .sidebar {
     margin-left: 1vh;
-    background: #222;
     max-height: 90vh;
   }
 
   .footer {
     margin-top: 1vh;
     min-height: 21vh;
-    background: #222;
   }
 
   .regwind
   {
     min-height: 70vh;
     margin-top: 5vh;
-    background: #222226;
     width: 50%;
   }
+
   ::-webkit-scrollbar {
     width: 0.5em;
+  }
+</style>
+<?php if (!isset($_COOKIE['lighttheme'])): ?>
+<style media="screen">
+  html, body {
+    color: white;
+    background: #111116;
+    scrollbar-face-color: #999;
+    scrollbar-track-color: #333336;
+  }
+
+  a {
+    color: white;
+  }
+  a:hover {
+    color: #555;
+  }
+
+  .header {
+    background: #222;
+  }
+
+  .main {
+    background: #222226;
+  }
+
+  .sidebar {
+    background: #222;
+  }
+
+  .footer {
+    background: #222;
+  }
+
+  .regwind
+  {
+    background: #222226;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -91,73 +118,46 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 <style media="screen">
   html, body {
-    margin: 0;
-    padding: 0;
     color: #000;
     background: #ffffff;
-    font: 400 1.2em 'Source Sans Pro';
-    scrollbar-face-color: #999;
-    scrollbar-track-color: #333336;
-  }
-  .link {
-    font-size: 2em;
-    font-weight: 1000;
-    margin-left: 5%;
+    scrollbar-face-color: #333336;
+    scrollbar-track-color: #999;
   }
 
   a {
     color: #000;
-    transition: 0.5s;
   }
   a:hover {
     color: #999;
-    text-decoration: none;
   }
 
   .header {
     background: #eee;
-    z-index: 9999999;
-  }
-  .context {
-    margin-top: 1vh;
   }
 
   .main {
-    min-height: 70vh;
     background: #eee;
-    z-index: 9999;
-    overflow-x: hidden;
   }
 
   .sidebar {
-    margin-left: 1vh;
     background: #eee;
-    max-height: 90vh;
   }
 
   .footer {
-    margin-top: 1vh;
-    min-height: 21vh;
     background: #eee;
   }
 
   .regwind
   {
-    min-height: 70vh;
-    margin-top: 5vh;
     background: #fff;
-    width: 50%;
-  }
-  ::-webkit-scrollbar {
-    width: 0.5em;
   }
 
   ::-webkit-scrollbar-thumb {
-      background: #999;
+      background: #333336;
   }
 
   ::-webkit-scrollbar-track {
-      background: #333336;
+      background: #999;
   }
   ::selection
   {
