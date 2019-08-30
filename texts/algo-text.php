@@ -1,3 +1,3 @@
 <div class="row">
-  <a href="/papers/sort.php">Сортировка</a>
+  <a href="/papers/sort">Сортировка</a>
 </div>
