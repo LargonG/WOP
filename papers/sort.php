@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="col-12 footer">
-
+      <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer-content.php" ?>
     </div>
   </body>
 </html>

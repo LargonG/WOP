@@ -21,11 +21,7 @@
       </div>
     </div>
     <div class="container footer">
-      <div class="row">
-        <div class="col">
-          FOOTER
-        </div>
-      </div>
+      <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer-content.php"; ?>
     </div>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.php' ?>
   </body>
