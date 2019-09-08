@@ -49,6 +49,13 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     min-height: 21vh;
   }
 
+  @media (max-width: 768px) {
+    .sidebar {
+      margin-top: 1vh;
+      margin-left: 0;
+    }
+  }
+
   .regwind
   {
     min-height: 70vh;
