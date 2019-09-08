@@ -20,7 +20,12 @@
     white-space: pre-wrap;
     color: inherit;
   }
-
+  @media (max-width: 1200px) {
+    .sidebar {
+      margin-top: 1vh;
+      margin-left: 0;
+    }
+  }
 </style>
 
 <?php if (isset($_COOKIE['lighttheme'])): ?>
