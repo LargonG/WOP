@@ -6,6 +6,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <link rel="shortcut icon" href="http://prohardinf.ru/imgs/tablogo.png">
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<!--
 <style media="screen">
   html, body {
     margin: 0;
@@ -26,26 +27,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     text-decoration: none;
   }
 
-  .header {
-    z-index: 9999999;
-  }
-  .context {
-    margin-top: 1vh;
-  }
 
   .main {
     min-height: 70vh;
-    z-index: 9999;
-    overflow-x: hidden;
-  }
-
-  .sidebar {
-    margin-left: 1vh;
-    max-height: 90vh;
   }
 
   .footer {
-    margin-top: 1vh;
     min-height: 21vh;
   }
 
@@ -176,3 +163,4 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
   }
 </style>
 <?php endif; ?>
+-->
