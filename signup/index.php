@@ -15,7 +15,6 @@
     </script>
   </head>
   <body>
-    <div class="navbar header">
     <style media="screen">
         .authorised
     {
@@ -74,12 +73,8 @@
 outline: none;
 }
   </style>
-
-<a href="http://prohardinf.ru" class="navbar-item link">
-     WOP
-  </a>
-    </div>
-    <div class="container context">
+  <?php require $_SERVER['DOCUMENT_ROOT']."/template/navbar.php" ?>
+    <div class="container context text-light">
       <div class="row">
         <div class="col regwind">
           <h2 align=center>Создание профиля</h2>
@@ -94,5 +89,6 @@ outline: none;
           </form>
       </div>
     </div>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.php' ?>
   </body>
 </html>
