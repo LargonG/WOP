@@ -1,3 +1,12 @@
+<?php
+function update_cookies()
+{
+  setcookie('name', $_POST['usname'], time() + (86400 * 30), '/'); //тебе не кажется, что 30 дней жирновато?
+  setcookie('logsuccess', 1, time() + (86400 * 30), '/');
+  setcookie('lastenteredlogin', $_POST['usname'], time() + (86400 * 30), '/');
+  header("Refresh: 0; url=http://prohardinf.ru");
+}
+?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
@@ -13,6 +22,7 @@
             document.getElementById('log').value = s;
         }
     </script>
+    <title>Создание профиля</title>
   </head>
   <body>
     <style media="screen">
@@ -79,10 +89,15 @@ outline: none;
         <div class="col regwind">
           <h2 align=center>Создание профиля</h2>
           <h4 align=center>Маленькое начало большого пути</h4><br><br>
-          <?php require 'createprof.php'; ?>
-          <form action='/signup' method='POST'>
-            <input class="authinput" type="text" name="usname" value="<?php echo @$_POST['usname']; ?>" placeholder="Логин" id="log" pattern="^[a-zA-Z0-9]+$"><span class="qm"><img src="/imgs/question.png" onmouseover="document.getElementById('q1').style.opacity='100';" onkeyup="delspaces();" onmouseout="document.getElementById('q1').style.opacity='0';"></span><span class="smtext" style="opacity: 0" id="q1"> Логин необходим для авторизации. Также он будет виден другим пользователям.</span><BR><BR>
-            <input class="authinput" type="text" name="email" value="<?php echo @$_POST['email']; ?>" placeholder="E-mail" pattern="^[a-zA-Z0-9]+$\@[a-zA-Z]+$\.[a-zA-Z]+$"><span class="qm"><img src="/imgs/question.png" onmouseover="document.getElementById('q2').style.opacity='100';" onmouseout="document.getElementById('q2').style.opacity='0';"></span><span class="smtext" style="opacity: 0" id="q2"> Ваш E-mail нужен для восстановления аккаунта, при утере его логина или пароля.</span><BR><BR>
+          <?php require 'createprof.php';?>
+          <form action='index.php' method='POST'>
+            <input class="authinput" type="text" name="usname" value="<?php echo @$_POST['usname']; ?>" placeholder="Логин" id="log"><span class="qm"><img src="/imgs/question.png" onmouseover="document.getElementById('q1').style.opacity='100';" onkeyup="delspaces();" onmouseout="document.getElementById('q1').style.opacity='0';"></span><span class="smtext" style="opacity: 0" id="q1"> Логин необходим для авторизации. Также он будет виден другим пользователям.</span><BR><BR>
+            <select name="role">
+              <option value="norole">Выберите роль</option>
+              <option value="student" <?php if (isset($_POST['role']) and $_POST['role'] == "student") echo 'selected'; ?>>Ученик</option>
+              <option value="teacher" <?php if (isset($_POST['role']) and $_POST['role'] == "teacher") echo 'selected'; ?>>Преподаватель</option>
+            </select><br><br>
+            <input class="authinput" type="text" name="email" value="<?php echo @$_POST['email']; ?>" placeholder="E-mail" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"><span class="qm"><img src="/imgs/question.png" onmouseover="document.getElementById('q2').style.opacity='100';" onmouseout="document.getElementById('q2').style.opacity='0';"></span><span class="smtext" style="opacity: 0" id="q2"> Ваш E-mail нужен для восстановления аккаунта, при утере его логина или пароля.</span><BR><BR>
             <input class="authinput" type="password" name="pass" placeholder="Пароль"><BR><br>
             <input class="authinput" type="password" name="r_pass" placeholder="Повторите пароль"><BR><br>
             <button class="authbutton" type="submit" name="sub">Создать профиль</button>
