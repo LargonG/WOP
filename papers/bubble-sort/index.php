@@ -6,6 +6,7 @@
     <title>Сортировка пузырьком</title>
   </head>
   <body>
+    <?php require $_SERVER['DOCUMENT_ROOT']."/set_online.php";?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/navbar.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/main.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer.php" ?>

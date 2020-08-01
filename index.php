@@ -1,6 +1,3 @@
-<?php
-  require $_SERVER['DOCUMENT_ROOT']."/set_online.php";
-?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
@@ -8,7 +5,7 @@
     <title>Мир олимпиадного программирования</title>
   </head>
   <body>
-
+    <?php require $_SERVER['DOCUMENT_ROOT']."/set_online.php";?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/navbar.php' ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/main.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer.php" ?>
