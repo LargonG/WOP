@@ -1,5 +1,6 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
+    $issue_el = '';
 
     if (isset($_POST['sub']))
     {
@@ -41,7 +42,7 @@
             $issues[] = 'Введенные пароли не совпадают!';
 
         if (!empty($issues))
-            echo '<div style="margin-left: 5vw;">'.$issues[0].'</div><BR>';
+            $issue_el = '<div style="margin-left: 5vw;">'.$issues[0].'</div><BR>';
         else
         {
             $user = R::dispense('userlogindata');
@@ -58,7 +59,7 @@
             $user->achievements = '';
             R::store($user);
             
-            echo '<div style="margin-left: 5vw;">Профиль был создан! Перейдите на главную и авторизуйтесь</div><BR>';
+            require "upd_cookies.php";
         }
     }
 ?>
