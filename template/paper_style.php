@@ -18,7 +18,4 @@
     white-space: pre-wrap;
     color: orange;
   }
-
-
-
 </style>

@@ -10,7 +10,7 @@ function update_cookies()
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/header.php' ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/head.php' ?>
     <!-- скрипт ниже не работает(((-->
     <script>
         function delspace()

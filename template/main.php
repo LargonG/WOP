@@ -4,7 +4,7 @@
       <?php require 'text.php' ?>
     </div>
     <div class="col sidebar bg-dark text-light">
-      <?php require $_SERVER['DOCUMENT_ROOT'].'/template/nav.php'?>
+      <?php // require $_SERVER['DOCUMENT_ROOT'].'/template/sidebar.php'?>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <?php require $_SERVER['DOCUMENT_ROOT']."/template/header.php" ?>
+    <?php require $_SERVER['DOCUMENT_ROOT']."/template/head.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/papers/papers-style.php" ?>
   </head>
   <body>
