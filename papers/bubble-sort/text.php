@@ -16,29 +16,48 @@
   <h4>Пример (сортировка по возрастанию)</h4>
 </div>
 
-<div class="code">
-  <code>
-#include &ltbits/stdc++.h&gt
+<!-- HTML generated using hilite.me --><div style="background: #222226; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;bits/stdc++.h&gt;</span>
+ 
+<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
+ 
+<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
+  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
+  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">vect(n);</span>
+  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">x</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">vect)</span>
+    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x;</span>
+  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(vect[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">vect[j])</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f8f8f2">swap(vect[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">vect[j]);</span>
+      <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">vect)</span>
+    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+ 
+<span style="color: #f8f8f2">}</span>
+</pre></td></tr></table></div>
 
-using namespace std;
-
-int main() {
-  int n;
-  cin >> n;
-  vector&ltint&gt vect(n);
-  for (int &x : vect)
-    cin >> x;
-  for (int i = 0; i < n; ++i) {
-    for (int j = 1; j < n; ++j) {
-      if (vect[j - 1] > vect[j]) {
-        swap(vect[j - 1], vect[j]);
-      }
-    }
-  }
-  for (int x : vect)
-    cout << x << " ";
-  return 0;
-
-}
-</code>
-</div>
