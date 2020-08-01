@@ -3,6 +3,7 @@
   <head>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/head.html" ?>
     <link rel="stylesheet" href="/papers/papers-style.css">
+    <title>Сортировка пузырьком</title>
   </head>
   <body>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/navbar.php" ?>

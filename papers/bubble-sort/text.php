@@ -16,28 +16,7 @@
   <h4>Пример (сортировка по возрастанию)</h4>
 </div>
 
-<!-- HTML generated using hilite.me --><div style="background: #222226; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
-2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;bits/stdc++.h&gt;</span>
+<div style="background: #222226; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;bits/stdc++.h&gt;</span>
  
 <span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
  
@@ -59,5 +38,4 @@
   <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
  
 <span style="color: #f8f8f2">}</span>
-</pre></td></tr></table></div>
-
+</pre></div>
