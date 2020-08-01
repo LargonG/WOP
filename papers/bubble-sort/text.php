@@ -16,7 +16,7 @@
   <h4>Пример (сортировка по возрастанию)</h4>
 </div>
 
-<div style="background: #222226; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;bits/stdc++.h&gt;</span>
+<div style="background: #222226; overflow:auto;width:auto;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;bits/stdc++.h&gt;</span>
  
 <span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
  
