@@ -10,7 +10,7 @@ function update_cookies()
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/head.php' ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/head.html' ?>
     <!-- скрипт ниже не работает(((-->
     <script>
         function delspace()
@@ -104,6 +104,6 @@ outline: none;
           </form>
       </div>
     </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.php' ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.html' ?>
   </body>
 </html>

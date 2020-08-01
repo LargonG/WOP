@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <?php require $_SERVER['DOCUMENT_ROOT']."/template/header.php"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT']."/template/head.html"; ?>
     <style media="screen">
       .text-content {
         text-align: center;
@@ -13,10 +13,7 @@
     </style>
   </head>
   <body>
-    <div class="navbar header">
-      <?php require $_SERVER['DOCUMENT_ROOT'].'/template/header-content.php' ?>
-    </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/singin.php'  ?>
+    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/navbar.php' ?>
     <div class="container main">
       <div class="row">
         <div class="col-12 text-content">

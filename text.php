@@ -1,4 +1,4 @@
 <span>Олимпиадное программирование - это искусство, которое дано не каждому. Наш сайт ломает этот стериотип, здесь вы сможете найти всё, что вам нужно по олимпиадному программированию.</span>
 <br/>
 <span style="font-size:0.6em">Сайт сделали Панов Антон, Коробков Михаил, Дмитрий Евтушенко и Бессонницын Евгений</span><br>
-<a href="texts/ok.jpg"><img src="/imgs/kitten.png" class="img-fluid rounded w-50" alt="котёнок" title="кликни!"/></a>
+<a href="/imgs/ok.jpg"><img src="/imgs/kitten.png" class="img-fluid rounded w-50" alt="котёнок" title="кликни!"/></a>
