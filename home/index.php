@@ -14,8 +14,45 @@
 <html lang="en">
 <head>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/head.html"; ?>
+    <?php require $_SERVER['DOCUMENT_ROOT']."/template/jQueryScripts.html"; ?>
     <link rel="stylesheet" href="style.css">
     <title>Домашняя | Мир олимпиадного программирования</title>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart()
+        {
+            var data = new google.visualization.DataTable();
+            var data = google.visualization.arrayToDataTable([
+            ['Year', 'Количество задач'],
+            ["Январь 2020",  1000],
+            ["Февраль 2020",  1170],
+            ["Март 2020",  660],
+            ["Апрель 2020",  2000]
+            ]);
+            //график просто как образец, данные нужно получать при помощи php
+
+            var options = {
+            title: 'Количество решенных задач',
+            titleTextStyle: {
+                color: '#ffffff'
+            },
+            curveType: 'function',
+            backgroundColor: '#212122',
+            hAxis: {
+                format: 'none',
+                titleTextStyle: {color: '#ffffff'},
+                textStyle: {color: '#ffffff'}
+            },
+            vAxis: {textStyle: {color: '#ffffff'}}
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('stats'));
+
+            chart.draw(data, options);
+        }
+    </script>
 </head>
 <body>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/navbar.php"; ?>
@@ -41,8 +78,8 @@
                 </div>
             </div>
             
-            <div class="col-12 mt-4 stats pt-3">
-                <div class="col-12 text-light h3">Stats</div>
+            <div class="col-12 mt-4 stats pt-3" id="stats">
+                <div class="col-12 text-light h3"></div>
             </div>
             
             <div class="col-12 mt-2 pt-3 achievements">
@@ -53,6 +90,5 @@
     </div>
 
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer.php"; ?>
-    <?php require $_SERVER['DOCUMENT_ROOT']."/template/jQueryScripts.html"; ?>
 </body>
 </html>
