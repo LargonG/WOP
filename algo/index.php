@@ -2,7 +2,7 @@
 <html lang="ru" dir="ltr">
   <head>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/header.php' ?>
-    <title>Мир олимпиадного программирования - Алгоритмы</title>
+    <title> Алгоритмы | Мир олимпиадного программирования</title>
   </head>
   <body>
 
