@@ -1,3 +1,15 @@
+<?php
+    require $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
+    $nickname = $_COOKIE['name'];
+    $user_userlogindata = R::findOne('userlogindata', 'username = ?', array($nickname));
+    $user_profiledata = R::findOne('profiledata', 'id = ?', array($user_userlogindata->id));
+    if ($user_profiledata->showemail)
+        $email = $user_userlogindata->email;
+    else
+        $email = "Эл. почта скрыта";
+    $role = $user_profiledata->role;
+    $is_online = ((time() - $user_profiledata->last_active) < 3 * 60);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +24,20 @@
         <div class="row">
 
             <div class="col-2">
-                <img src="/imgs/kitten.png" class="rounded mx-auto d-block img-fluid" alt="">
+                <img src=<?php $path = $_SERVER['DOCUMENT_ROOT']."/avatars/".$nickname.'.jpg'; if (file_exists($path)) echo "\""."/avatars/".$nickname.".jpg"."\""; else echo "/imgs/default_avatar.jpg"; ?> class="rounded mx-auto d-block img-fluid" width=150 height=150 alt="">
             </div>
 
             <div class="col-10">
                 <div class="nickname h5">
-                    $$$KittenProCoder3000$$$
-                    <img src="/imgs/online.png" alt="">
+                    <?php echo $nickname; if ($is_online) echo '<img src="/imgs/online.png" width=17 height=17 alt="" style="margin-left: 10px;" title="Онлайн">'; ?>
                 </div>
 
                 <div class="role h6 font-weight-normal">
-                    Сэнсей
+                    <?php if ($role == student) echo "Ученик"; else echo "Преподаватель"; ?>
                 </div>
                 
                 <div class="email h6 font-italic font-weight-normal text-secondary">
-                    kitten@catmail.catland
+                    <?php echo $email; ?>
                 </div>
             </div>
             

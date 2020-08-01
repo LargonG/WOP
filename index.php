@@ -1,3 +1,6 @@
+<?php
+  require $_SERVER['DOCUMENT_ROOT']."/set_online.php";
+?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>

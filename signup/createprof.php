@@ -54,7 +54,7 @@
             $user = R::dispense('profiledata');
             $user->role = $role;
             $user->showemail = FALSE;
-            $user->online = TRUE;
+            $user->last_active = time();
             $user->courses = '';
             $user->achievements = '';
             R::store($user);
