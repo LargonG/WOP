@@ -28,15 +28,15 @@
     <div class="col-xl-4 col text-center">
         <b>Мы в соцсетях:</b>
         <div class="row justify-content-center mt-1">
-          <a class="col-md-2 col-3 p-0"href="#" title="Мы Вконтакте">
+          <a class="col-md-2 col-3 p-0"href="#" title="Вконтакте">
             <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://prohardinf.ru/imgs/vklink.png"; else echo "http://prohardinf.ru/imgs/dvklink.png"; ?> class="snetlink">
           </a>
 
-          <a class="col-md-2 col-3 p-0" href="#" title="Мы на Facebook">
+          <a class="col-md-2 col-3 p-0" href="#" title="Facebook">
             <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://prohardinf.ru/imgs/fblink.png"; else echo "http://prohardinf.ru/imgs/dfblink.png"; ?> class="snetlink">
           </a>
 
-          <a class="col-md-2 col-3 p-0" href="#" title="Мы на Youtube">
+          <a class="col-md-2 col-3 p-0" href="#" title="Youtube">
             <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://prohardinf.ru/imgs/ytlink.png"; else echo "http://prohardinf.ru/imgs/dytlink.png"; ?> class="snetlink">
           </a>
         </div>
