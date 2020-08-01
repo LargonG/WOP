@@ -1,27 +1,8 @@
-<?php
-function update_cookies()
-{
-  setcookie('name', $_POST['usname'], time() + (86400 * 30), '/'); //тебе не кажется, что 30 дней жирновато?
-  setcookie('logsuccess', 1, time() + (86400 * 30), '/');
-  setcookie('lastenteredlogin', $_POST['usname'], time() + (86400 * 30), '/');
-  header("Refresh: 0; url=http://prohardinf.ru");
-}
-?>
+<?php require 'createprof.php';?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/head.html' ?>
-    <!-- скрипт ниже не работает(((-->
-    <script>
-        function delspace()
-        {
-            var s = document.getElementById('log').value;
-            //alert(s);
-            if (s.slice(-1) == ' ')
-                s.slice(0, -1);
-            document.getElementById('log').value = s;
-        }
-    </script>
     <title>Создание профиля</title>
   </head>
   <body>
@@ -89,7 +70,7 @@ outline: none;
         <div class="col regwind">
           <h2 align=center>Создание профиля</h2>
           <h4 align=center>Маленькое начало большого пути</h4><br><br>
-          <?php require 'createprof.php';?>
+          <?php echo $issue_el; ?>
           <form action='index.php' method='POST'>
             <input class="authinput" type="text" name="usname" value="<?php echo @$_POST['usname']; ?>" placeholder="Логин" id="log"><span class="qm"><img src="/imgs/question.png" onmouseover="document.getElementById('q1').style.opacity='100';" onkeyup="delspaces();" onmouseout="document.getElementById('q1').style.opacity='0';"></span><span class="smtext" style="opacity: 0" id="q1"> Логин необходим для авторизации. Также он будет виден другим пользователям.</span><BR><BR>
             <select name="role">
