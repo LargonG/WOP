@@ -1,23 +1,5 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
-    
-    function check_letters($login)
-    {
-        $letters = 'qwertyuiopasdfghjklzxcvbnm';
-        for ($i = 0; $i < strlen($letters); $i++)
-            if (strripos($login, $letters{$i}) != false)
-                return true;
-        return false;
-    }
-
-    function contains_banned_symb($login)
-    {
-        $permitted = '1234567890qwertyuiopasdfghjklzxcvbnm';
-        for ($i = 0; $i < strlen($login); $i++)
-            if (strripos($permitted, $login{$i}) == false)
-                return true;
-        return false;
-    }
 
     if (isset($_POST['sub']))
     {
@@ -26,6 +8,7 @@
         $email = trim($_POST['email']);
         $pass = $_POST['pass'];
         $rpass = $_POST['r_pass'];
+        $role = $_POST['role'];
 
         if (strlen($login) == 0)
             $issues[] = 'Логин не может быть пустым.';
@@ -36,11 +19,11 @@
         if (strripos($login, ' ') != false)
             $issues[] = 'Логин не может содержать пробелов.';
 
-        if (!check_letters($login))
+        if (ctype_digit($login))
             $issues[] = 'Логин не может содержать только цифры.';
-
-        if (contains_banned_symb($login))
-            $issues[] = 'Пожалуйста, используйте в логине только цифры и буквы.';
+        
+        if ($role == "norole")
+            $issues[] = 'Выберите роль.';
 
         if (R::findOne('userlogindata', 'username = ?', array($_POST['usname'])))
             $issues[] = 'Такой логин занят. Попробуйте другой.';
@@ -66,6 +49,16 @@
             $user->email = $email;
             $user->password = password_hash($pass, PASSWORD_DEFAULT);
             R::store($user);
+
+            $user = R::dispense('profiledata');
+            $user->role = $role;
+            $user->showemail = FALSE;
+            $user->online = TRUE;
+            $user->courses = '';
+            $user->achievements = '';
+            R::store($user);
+            
+            echo '<div style="margin-left: 5vw;">Профиль был создан! Перейдите на главную и авторизуйтесь</div><BR>';
         }
     }
 ?>
