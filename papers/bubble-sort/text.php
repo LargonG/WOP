@@ -1,41 +1,31 @@
 <div class="text">
-  <h2>Сортировка</h2>
-  <p>Перед тем, как рассуждать, как сделать сортировку правильно и быстро, мы должны сначала понять, что это вообще такое. <br>
-  Сортировка - это такой алгоритм, который позволяет отсортировать какую-то структуру данных. Так, это уже лучше, теперь надо понять, что называется отсортированным.
-  Отсортированная структура данных - это такая структура данных, элементы которой расположены в каком-то заданном порядке, есть какое-то правило, по которому они сортируются.
-  <br> Например массив [1, 7, 5, 3, 2] не отсортирован в подярке возрастания, а массив [1, 2, 3, 5, 7] - да.</p>
-  <p>Итак мы разобрались с целью, теперь приступим к размышлению.</p>
-  <h3>Сортировка <abbr title="Пузырьком её назвали в честь того, что элемент в процессе сортировки 'поднимается' наверх">"пузырьком"</abbr></h3>
-  <h4>Алгоритм</h4>
-  <p>N раз обходим массив, и если два подряд идущих элемента стоят <b>не</b> по порядку, меняем их местами.</p>
-  <p>Скорость: O(n<sup>2</sup>)</p>
-  <p>Память: O(1)</p>
-  <h4>Доказательство</h4>
-  <p>На самом деле тут всё банально просто. За 1 проход мы переместим 1 элемент в самый конец - это и будет являться тот элемент, который и должен там стоять => за n операций таких
-  элементов будет n.</p>
-  <h4>Пример (сортировка по возрастанию)</h4>
+  <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="__0"></a>Сортировка пузырьком</h1>
+  <p class="has-line-data" data-line-start="2" data-line-end="3">Что такое сортировка? Это процесс, в результате которого в какой-либо структуре данных элементы идут в определённом порядке. Например, в словаре сначала идут слова, первое слово которых начинается с более ранней буквы, чем у другого. Или когда дети в строю на уроках физкультуры стоят в порядке уменьшения роста, только сначала идут мальчики, а уже потом девочки. Так и здесь мы преследуем аналогичные цели: расставить что-то по определённым правилам.</p>
+  <p class="has-line-data" data-line-start="4" data-line-end="5">Рассмотрим, например, массив чисел: [54, 2, 3, 24, 13]. Допустим, мы хотим его отсортировать в порядке возрастания, т.е. результатом работы будет: [2, 3, 13, 24, 54]. Для этого применим алгоритм сортировки пузырьком. Он работает за O(n^2).</p>
+  <p class="has-line-data" data-line-start="6" data-line-end="7">Итак, как же работает данный алгоритм? Очень просто! Нам нужно n раз пройтись по массиву и локально сравнить соседние элементы. Это сработает из-за того, что за n шагов самый наименьший элемент будет стоять на самом первом месте, а самый наибольший - на последнем. И так с каждым.</p>
+  <h2 class="code-line" data-line-start=8 data-line-end=9 ><a id="C_8"></a>C++</h2>
 </div>
 
-<div style="background: #222226; overflow:auto;width:auto;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">#include &lt;bits/stdc++.h&gt;</span>
- 
-<span style="color: #66d9ef">using</span> <span style="color: #66d9ef">namespace</span> <span style="color: #f8f8f2">std;</span>
- 
-<span style="color: #66d9ef">int</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-  <span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">n;</span>
-  <span style="color: #f8f8f2">vector</span><span style="color: #f92672">&lt;</span><span style="color: #66d9ef">int</span><span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">vect(n);</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">x</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">vect)</span>
-    <span style="color: #f8f8f2">cin</span> <span style="color: #f92672">&gt;&gt;</span> <span style="color: #f8f8f2">x;</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">i)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">j</span> <span style="color: #f92672">&lt;</span> <span style="color: #f8f8f2">n;</span> <span style="color: #f92672">++</span><span style="color: #f8f8f2">j)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(vect[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">&gt;</span> <span style="color: #f8f8f2">vect[j])</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f8f8f2">swap(vect[j</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">],</span> <span style="color: #f8f8f2">vect[j]);</span>
-      <span style="color: #f8f8f2">}</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">int</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">vect)</span>
-    <span style="color: #f8f8f2">cout</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">x</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #e6db74">&quot; &quot;</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #66d9ef">return</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
- 
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+<pre><code class="has-line-data" data-line-start="10" data-line-end="33" class="language-c++"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> n;
+    <span class="hljs-built_in">cin</span> &gt;&gt; n;
+
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v(n);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; x : v)
+        <span class="hljs-built_in">cin</span> &gt;&gt; x;
+    
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i)
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n - <span class="hljs-number">1</span>; ++j)
+            <span class="hljs-keyword">if</span> (v[i] &gt; v[j])
+                swap(v[i], v[j]);
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; x : v)
+        <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">" "</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
