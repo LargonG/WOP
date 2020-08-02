@@ -9,7 +9,7 @@
 
   <blockquote>
   <p class="has-line-data" data-line-start="7" data-line-end="9">Сортировка - это важная часть олимпиадного программмирования, не стоит ей пренебрегать.<br>
-  <strong>Самый лучший прогер на свете</strong></p>
+  <strong><a href="https://github.com/krewaz234">Самый лучший прогер на свете</a></strong></p>
   </blockquote>
 
   <h2 class="code-line" data-line-start=10 data-line-end=11 ><a id="C_10"></a>C++</h2>
