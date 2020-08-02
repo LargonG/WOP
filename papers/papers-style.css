@@ -2,23 +2,16 @@
   padding: 0;
 }
 
-.text, .code {
-  padding-left: 15px;
-  padding-right: 15px;
+.text {
+  padding: 1em;
 }
 
-.code {
-  background: #232323;
-  box-sizing: border-box;
-  border-top: 1px solid #333336;
-  border-bottom: 1px solid #333336;
-  color: orange;
+blockquote {
+  background-color: #2c2c33;
+  border-left: 0.4em solid gray;
+  padding-left: 0.6em;
 }
 
-.code code {
-  white-space: pre-wrap;
-  color: inherit;
-}
 @media (max-width: 1200px) {
   .sidebar {
     margin-top: 1vh;
