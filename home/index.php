@@ -18,18 +18,19 @@
     <link rel="stylesheet" href="style.css">
     <title>Домашняя | Мир олимпиадного программирования</title>
     <script type="text/javascript">
+        <?php
+        $problem_stats_str = '';
+        $problem_stats = R::getAll('SELECT * FROM stats'.$user_userlogindata->id);
+        foreach ($problem_stats as $i)
+            $problem_stats_str = $problem_stats_str.'['.'\''.$i['month'].'\','.$i['problemscounter'].'],';
+        if ($problem_stats_str != ''):
+        ?>
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart()
         {
             var data = new google.visualization.DataTable();
-            var data = google.visualization.arrayToDataTable([
-            ['Year', 'Количество задач'],
-            ["Январь 2020",  1000],
-            ["Февраль 2020",  1170],
-            ["Март 2020",  660],
-            ["Апрель 2020",  2000]
-            ]);
+            var data = google.visualization.arrayToDataTable([['Month', 'Количество задач'],<?php echo $problem_stats_str; ?>]);
             //график просто как образец, данные нужно получать при помощи php
 
             var options = {
@@ -52,6 +53,8 @@
 
             chart.draw(data, options);
         }
+    <?php else: ?>
+    <?php endif ?>
     </script>
 </head>
 <body>
@@ -79,7 +82,7 @@
             </div>
             
             <div class="col-12 mt-4 stats pt-3" id="stats">
-                <div class="col-12 text-light h3"></div>
+                <div class="col-12 text-light h3">Нет данных по решенным задачам</div>
             </div>
             
             <div class="col-12 mt-2 pt-3 achievements">
