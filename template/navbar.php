@@ -12,7 +12,7 @@
         <a class="nav-link" href="/algo">Алгоритмы</a>
       </li>
       <li class="nav-item link_tasks">
-        <a class="nav-link disabled" href="/calendar">Задачи</a>
+        <a class="nav-link" href="/problems">Задачи</a>
       </li>
       <li class="nav-item link_calendar">
         <a class="nav-link disabled" href="/calendar">Календарь</a>

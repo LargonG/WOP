@@ -11,10 +11,3 @@ blockquote {
   border-left: 0.4em solid gray;
   padding-left: 0.6em;
 }
-
-@media (max-width: 1200px) {
-  .sidebar {
-    margin-top: 1vh;
-    margin-left: 0;
-  }
-}
