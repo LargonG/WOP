@@ -22,12 +22,12 @@
             <!-- Возможность выбрать файл для сдачи-->
             <div class="custom-file col-lg-3 col-md-4 col">
                 <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Choose file</label>
+                <label class="custom-file-label" for="customFile">Выберите файл</label>
             </div>
 
             <!-- Кнопка триггер -->
             <div class="col">
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" style="background-color: #242424;border: 0;transition: 0.3s" onmouseover="this.style.backgroundColor='#212529'" onmouseout="this.style.backgroundColor='#242424'">Отправить</button>
             </div>
 
         </div>
