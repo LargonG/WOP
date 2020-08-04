@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item link_main">
-        <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Главная <span class="sr-only"></span></a>
       </li>
       <li class="nav-item link_algo">
         <a class="nav-link" href="/algo">Алгоритмы</a>
@@ -38,12 +38,16 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-light bg-dark">
           <div class="modal-header">
+
             <h5 class="modal-title">Авторизация</h5>
+
             <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
+
           </div>
 
+          <!-- Авторизация -->
           <div class="modal-body">
             <form action = "/setconfig.php" method = "POST">
 
@@ -52,18 +56,24 @@
                 <input type="text" class="form-control" id="login" placeholder="Логин или email" name="usname"
                 value="<?php if (isset($_COOKIE['lastenteredlogin'])) echo $_COOKIE['lastenteredlogin']; ?>">
               </div>
+
               <div class="form-group">
                 <label for="password">Пароль</label>
                 <input type="password" class="form-control" id="password" placeholder="Пароль" name="pass">
               </div>
+
               <?php if (isset($_COOKIE['logsuccess'])) if ($_COOKIE['logsuccess'] == false): ?>
+
               <div class="alert alert-danger font-weight-bold small text-center" role="alert">
                   Неверный логин или пароль. Повторите попытку входа.
               </div>
+
               <?php endif; ?>
+
               <div style="width: 100%" align=center>
                 <button class="btn btn-success" type="submit" name="sub" >Войти</button>
               </div>
+
             </form>
           </div>
 
