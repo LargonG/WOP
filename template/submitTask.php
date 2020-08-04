@@ -6,6 +6,7 @@
             <div class="col-12 p-0">
                 <select class="custom-select bg-code text-light">
                     <!-- Тут по идее список должен формироваться через php -->
+                    <!--Зачем здесь PHP если список будет фиксированный?-->
                     <option value="C++" selected >C++</option>
                     <option value="Java">Java</option>
                     <option value="C">C</option>
@@ -15,7 +16,7 @@
 
             <!-- Поле для вставки кода-->
             <div class="col-12 p-0">
-                <textarea class="col-12 bg-code text-light border-0" name="" id="" cols="30" rows="10"></textarea>
+                <textarea class="col-12 bg-code text-light border-0" name="" id="" cols="30" rows="10" placeholder="Введите код здесь или отправьте файл, содержащий решение задачи."></textarea>
             </div>
 
             <!-- Возможность выбрать файл для сдачи-->
