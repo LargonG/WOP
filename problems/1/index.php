@@ -5,7 +5,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.html' ?>
     <link rel="stylesheet" href="/css/papers-style.css">
     <link rel="stylesheet" href="/css/code-style.css">
-    <title>Мир олимпиадного программирования</title>
+    <title>Гарри Поттер на озере</title>
   </head>
   <body>
     <?php require $_SERVER['DOCUMENT_ROOT']."/set_online.php";?>
