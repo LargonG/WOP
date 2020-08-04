@@ -27,7 +27,7 @@
 
             <!-- Кнопка триггер -->
             <div class="col">
-                <button class="btn btn-primary" style="background-color: #242424;border: 0;transition: 0.3s" onmouseover="this.style.backgroundColor='#212529'" onmouseout="this.style.backgroundColor='#242424'">Отправить</button>
+                <button class="btn text-light bg-code">Отправить</button>
             </div>
 
         </div>

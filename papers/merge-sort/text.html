@@ -1,84 +1,84 @@
 <div class="text">
-  <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="_0"></a>Быстрая сортировка</h1>
-<p class="has-line-data" data-line-start="2" data-line-end="3">Сортируй, сортируй и ещё раз сортируй! Не ленись, это ведь так просто! Когда ты сортируешь, у тебя:</p>
-<ol>
-<li class="has-line-data" data-line-start="3" data-line-end="4">Появляется время O(NlogN)</li>
-<li class="has-line-data" data-line-start="4" data-line-end="5">Элементы можно сортировать по какому угодно признаку</li>
-<li class="has-line-data" data-line-start="5" data-line-end="7">Сортировать - это круто!</li>
-</ol>
-<blockquote>
-<p class="has-line-data" data-line-start="7" data-line-end="9">"Сортировка - это важная часть олимпиадного программмирования, не стоит ей пренебрегать."<br>
-Самый лучший прогер на свете (с)</p>
-</blockquote>
-<p class="has-line-data" data-line-start="10" data-line-end="11">Для сортировки за время O(NlogN) можно пользоваться функцией std::sort(). У этой функции есть 2 параметра:</p>
-<ol>
-<li class="has-line-data" data-line-start="11" data-line-end="12">Итератор начала вектора</li>
-<li class="has-line-data" data-line-start="12" data-line-end="14">Итератор, следующий за концом вектора<br><br>
-Данная функция отсортирует вектор по неубыванию в диапазоне, который вы сообщите ей при помощи итераторов.</li>
-</ol>
-<h2 class="code-line" data-line-start=14 data-line-end=15 ><a id="C_14"></a>C++</h2>
-<pre><code class="has-line-data" data-line-start="16" data-line-end="31" class="language-c++"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
-
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">int</span> n; <span class="hljs-built_in">cin</span> &gt;&gt; n;
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v(n);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; x : v) <span class="hljs-built_in">cin</span> &gt;&gt; x;
-    sort(v.begin(), v.end());
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; x : v)
-        <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">" "</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
-</code></pre>
-<p class="has-line-data" data-line-start="32" data-line-end="33">Этой функцией можно также пользоваться и в обычных массивах, только вместо итераторов нужно передать в функцию указатели на начало и элемент за концом массива.</p>
-<h2 class="code-line" data-line-start=34 data-line-end=35 ><a id="C_34"></a>C++</h2>
-<pre><code class="has-line-data" data-line-start="36" data-line-end="50" class="language-c++"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
-
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">int</span> n; <span class="hljs-built_in">cin</span> &gt;&gt; n;
-    <span class="hljs-keyword">int</span> arr[n];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) <span class="hljs-built_in">cin</span> &gt;&gt; arr[i];
-    sort(arr, arr + n);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) <span class="hljs-built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="hljs-string">" "</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
-</code></pre>
-<h2 class="code-line" data-line-start=51 data-line-end=52 ><a id="__stdsort_51"></a>Компаратор для std::sort()</h2>
-<p class="has-line-data" data-line-start="52" data-line-end="53"><strong>Компаратор</strong> - это специальная функция, которая передается как третий параметр в std::sort(). Эта функция должна возвращать <em>true</em> или <em>false</em> в зависимости от того, в правильном ли порядке стоят соседние элементы или нет (если стоят как нам надо, возвращает <em>true</em>, иначе <em>false</em>). Поясним на примере: имеем какой-то вектор целых чисел <strong>v</strong>. Чтобы отсортировать массив не в порядке неубывания, а, например, невозрастания, функция должна быть такой:</p>
-<h2 class="code-line" data-line-start=53 data-line-end=54 ><a id="C_53"></a>C++</h2>
-<pre><code class="has-line-data" data-line-start="55" data-line-end="60" class="language-c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">comp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span>
-</span>{
-    <span class="hljs-keyword">return</span> a &gt; b;
-}
-</code></pre>
-<p class="has-line-data" data-line-start="60" data-line-end="61">Соответственно, функция std::sort() Будет вызваться так:</p>
-<h2 class="code-line" data-line-start=62 data-line-end=63 ><a id="C_62"></a>C++</h2>
-<pre><code class="has-line-data" data-line-start="64" data-line-end="66" class="language-c++"><span class="hljs-built_in">std</span>::sort(v.begin(), v.end(), comp);
-</code></pre>
-<p class="has-line-data" data-line-start="66" data-line-end="67">Обратите внимание, что функция-компаратор обязательно должна принимать 2 значения, возвращать <em>bool</em>, как упоминалось раннее, и передается в std::sort() без скобочек. Эту функцию также можно заменить лямбда-выражением, записав его как третий параметр функции.</p>
-<h2 class="code-line" data-line-start=67 data-line-end=68 ><a id="C_67"></a>C++</h2>
-<pre><code class="has-line-data" data-line-start="69" data-line-end="71" class="language-c++"><span class="hljs-built_in">std</span>::sort(v.begin(), v.end(), [](<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b) {<span class="hljs-keyword">return</span> a &gt; b;});
-</code></pre>
-<p class="has-line-data" data-line-start="71" data-line-end="72">Для закрепления: программа, которая сортирует числа <strong>по модулю</strong> (независимо от знака), а не по их значению</p>
-<h2 class="code-line" data-line-start=72 data-line-end=73 ><a id="C_72"></a>C++</h2>
-<pre><code class="has-line-data" data-line-start="74" data-line-end="89" class="language-c++"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
-
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">int</span> n; <span class="hljs-built_in">cin</span> &gt;&gt; n;
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v(n);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; x : v) <span class="hljs-built_in">cin</span> &gt;&gt; x;
-    sort(v.begin(), v.end(), [](<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b) {<span class="hljs-keyword">return</span> <span class="hljs-built_in">abs</span>(a) &lt; <span class="hljs-built_in">abs</span>(b);});
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; x : v)
-        <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">" "</span>;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
-</code></pre>
+    <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="_0"></a>Сортируй</h1>
+    <p class="has-line-data" data-line-start="2" data-line-end="3">Сортируй, сортируй и ещё раз сортируй! Не ленись, это ведь так просто! Когда ты сортируешь, у тебя</p>
+    <ol>
+    <li class="has-line-data" data-line-start="3" data-line-end="4">Появляется время o(nlogn)</li>
+    <li class="has-line-data" data-line-start="4" data-line-end="5">Элементы идут в каком-то порядке</li>
+    <li class="has-line-data" data-line-start="5" data-line-end="7">Сортировать - это круто!</li>
+    </ol>
+    <blockquote>
+    <p class="has-line-data" data-line-start="7" data-line-end="9">Сортировка - это важная часть олимпиадного программмирования, не стоит ей пренебрегать.<br>
+    <strong>Самый лучший прогер на свете</strong></p>
+    </blockquote>
+    <p class="has-line-data" data-line-start="10" data-line-end="11">Для сортировки за время O(NlogN) можно пользоваться функцией std::sort(). У этой функции есть 2 параметра:</p>
+    <ol>
+    <li class="has-line-data" data-line-start="11" data-line-end="12">Итератор начала вектора</li>
+    <li class="has-line-data" data-line-start="12" data-line-end="14">Итератор, следующий за концом вектора</li>
+    </ol>
+    <p class="has-line-data" data-line-start="14" data-line-end="15">Данная функция отсортирует вектор по неубыванию в диапазоне, который вы сообщите ей при помощи итераторов.</p>
+    <h2 class="code-line" data-line-start=16 data-line-end=17 ><a id="C_16"></a>C++</h2>
+    <pre><code class="has-line-data" data-line-start="19" data-line-end="34" class="language-c++"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
+    
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">int</span> n; <span class="hljs-built_in">cin</span> &gt;&gt; n;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v(n);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; x : v) <span class="hljs-built_in">cin</span> &gt;&gt; x;
+        sort(v.begin(), v.end());
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; x : v)
+            <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">" "</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    </code></pre>
+    <p class="has-line-data" data-line-start="35" data-line-end="36">Этой функцией можно также пользоваться и в обычных массивах, только вместо итераторов, нужно передать в функцию указатели на начало и элемент за концом массива.</p>
+    <h2 class="code-line" data-line-start=37 data-line-end=38 ><a id="C_37"></a>C++</h2>
+    <pre><code class="has-line-data" data-line-start="40" data-line-end="54" class="language-c++"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
+    
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">int</span> n; <span class="hljs-built_in">cin</span> &gt;&gt; n;
+        <span class="hljs-keyword">int</span> arr[n];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) <span class="hljs-built_in">cin</span> &gt;&gt; arr[i];
+        sort(arr, arr + n);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) <span class="hljs-built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="hljs-string">" "</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    </code></pre>
+    <h2 class="code-line" data-line-start=55 data-line-end=56 ><a id="__stdsort_55"></a>Компаратор для std::sort()</h2>
+    <p class="has-line-data" data-line-start="57" data-line-end="58"><strong>Компаратор</strong> - это специальная функция, которая передается как третий параметр в std::sort(). Эта функция должна возвращать <em>true</em> или <em>false</em> в зависимости от того, в правильном ли порядке стоят соседние элементы или нет (если стоят как нам надо, возвращает <em>true</em>, иначе <em>false</em>). Поясним на примере: имеем какой-то вектор целых чисел <strong>v</strong>. Чтобы отсортировать массив не в порядке неубывания, а например невозрастания, функция должна быть такой:</p>
+    <h2 class="code-line" data-line-start=59 data-line-end=60 ><a id="C_59"></a>C++</h2>
+    <pre><code class="has-line-data" data-line-start="62" data-line-end="67" class="language-c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">comp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span>
+    </span>{
+        <span class="hljs-keyword">return</span> a &gt; b;
+    }
+    </code></pre>
+    <p class="has-line-data" data-line-start="68" data-line-end="69">Соответственно, функция std::sort() Будет вызваться так:</p>
+    <h2 class="code-line" data-line-start=70 data-line-end=71 ><a id="C_70"></a>C++</h2>
+    <pre><code class="has-line-data" data-line-start="73" data-line-end="75" class="language-c++"><span class="hljs-built_in">std</span>::sort(v.begin(), v.end(), comp);
+    </code></pre>
+    <p class="has-line-data" data-line-start="76" data-line-end="77">Обратите внимание, что функция-компаратор обязательно должна принимать 2 значения, возвращать <em>bool</em>, как упоминалось раннее, и передается она в std::sort() без скобочек. Эту функцию также можно заменить лямбда-выражением, записав его как третий параметр функции.</p>
+    <h2 class="code-line" data-line-start=78 data-line-end=79 ><a id="C_78"></a>C++</h2>
+    <pre><code class="has-line-data" data-line-start="81" data-line-end="83" class="language-c++"><span class="hljs-built_in">std</span>::sort(v.begin(), v.end(), [](<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b) {<span class="hljs-keyword">return</span> a &gt; b;});
+    </code></pre>
+    <p class="has-line-data" data-line-start="84" data-line-end="85">Для закрепления, пример программы, которая сортирует числа в массиве не по их значения, а по модулю, независимо от знака.</p>
+    <h2 class="code-line" data-line-start=86 data-line-end=87 ><a id="C_86"></a>C++</h2>
+    <pre><code class="has-line-data" data-line-start="89" data-line-end="104" class="language-c++"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span>
+    
+    <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">int</span> n; <span class="hljs-built_in">cin</span> &gt;&gt; n;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v(n);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; x : v) <span class="hljs-built_in">cin</span> &gt;&gt; x;
+        sort(v.begin(), v.end(), [](<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b) {<span class="hljs-keyword">return</span> <span class="hljs-built_in">abs</span>(a) &lt; <span class="hljs-built_in">abs</span>(b);});
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; x : v)
+            <span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-string">" "</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    </code></pre>
 </div>
