@@ -51,3 +51,7 @@ pre code {
 .tex .hljs-formula {
     background: #073642;
 }
+
+.bg-code {
+    background-color: #242424;
+}
