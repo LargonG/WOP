@@ -5,6 +5,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.html' ?>
     <link rel="stylesheet" href="/css/papers-style.css">
     <link rel="stylesheet" href="/css/code-style.css">
+    <link rel="stylesheet" href="/css/task-style.css">
     <title>Гарри Поттер на озере</title>
   </head>
   <body>
