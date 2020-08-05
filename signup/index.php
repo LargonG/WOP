@@ -16,7 +16,8 @@
 
           <?php echo $issue_el; ?>
           <form action='index.php' method='POST'>
-
+            
+            <!-- Логин -->
             <div class="form-group">
               <label for="log">Логин</label>
               <input class="form-control" type="text" name="usname" value="<?php echo @$_POST['usname']; ?>"
@@ -24,6 +25,7 @@
               <small id="loginHelp" class="form-text text-muted">Логин необходим для авторизации. Также он будет виден другим пользователям.</small>
             </div>
 
+            <!-- Роль -->
             <div class="form-group">
               <label for="role">Роль</label>
               <select class="form-control" name="role" id="role">
@@ -33,6 +35,7 @@
               </select>
             </div>
 
+            <!-- Email -->
             <div class="form-group">
               <label for="email">Email</label>
               <input class="form-control" type="text" name="email" id="email" value="<?php echo @$_POST['email']; ?>"
@@ -41,6 +44,7 @@
               <small id="loginHelp" class="form-text text-muted">Ваш E-mail нужен для восстановления аккаунта, при утере его логина или пароля.</small>
             </div>
 
+            <!-- Пароль и повтор пароля в одной строке -->
             <div class="form-group form-row">
               <div class="col-md-6 col-12">
                 <label for="password">Пароль</label>
@@ -51,11 +55,15 @@
                 <input class="form-control" id="password-repeat" type="password" name="r_pass" placeholder="Повторите пароль">
               </div>
             </div>
-            
+
+            <!-- Кнопка-триггер -->
             <button class="btn btn-success" type="submit" name="sub">Создать профиль</button>
 
           </form>
+        </div>
       </div>
     </div>
+    
+    <?php require $_SERVER["DOCUMENT_ROOT"]."/template/footer.php"; ?>
   </body>
 </html>
