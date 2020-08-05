@@ -85,6 +85,5 @@ outline: none;
           </form>
       </div>
     </div>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.html' ?>
   </body>
 </html>

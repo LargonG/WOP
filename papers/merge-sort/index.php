@@ -11,6 +11,5 @@
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/navbar.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/paper.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer.php" ?>
-    <?php require $_SERVER['DOCUMENT_ROOT'].'/template/jQueryScripts.html' ?>
   </body>
 </html>

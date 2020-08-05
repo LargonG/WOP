@@ -14,7 +14,6 @@
 <html lang="en">
 <head>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/head.html"; ?>
-    <?php require $_SERVER['DOCUMENT_ROOT']."/template/jQueryScripts.html"; ?>
     <link rel="stylesheet" href="style.css">
     <title>Домашняя | Мир олимпиадного программирования</title>
     <script type="text/javascript">
