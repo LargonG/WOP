@@ -5,3 +5,12 @@
 .main .text {
     padding: 1em;
 }
+
+.text .table td {
+    border: 0;
+    border-right: 1px solid white;
+}
+
+.text .table thead td {
+    border-b
+}
