@@ -8,5 +8,8 @@
 
 .text .table td {
     border: 0;
-    border-right: 1px solid white;
+}
+
+.text .table thead {
+    background-color: #242424;
 }
