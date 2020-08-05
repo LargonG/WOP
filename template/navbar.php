@@ -14,8 +14,8 @@
       </li>
       
       <!-- Алгоритмы/Статьи -->
-      <li class="nav-item link_algo">
-        <a class="nav-link" href="/algo">Статьи</a>
+      <li class="nav-item link-papers">
+        <a class="nav-link" href="/papers">Статьи</a>
       </li>
       
       <!-- Задачи -->
