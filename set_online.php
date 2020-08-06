@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
 if (isset($_COOKIE['name']))
 {
     $user = R::findOne('userlogindata', 'username = ?', array($_COOKIE['name']));

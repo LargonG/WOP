@@ -27,7 +27,7 @@
 
             <!-- Кнопка триггер -->
             <div class="col">
-                <button class="btn text-light bg-code">Отправить</button>
+                <button class="btn text-light bg-code"<?php if (!isset($_COOKIE['name'])) echo ' disabled title="Авторизуйтесь, чтобы отправлять задачи"'; ?>>Отправить</button>
             </div>
 
         </div>
