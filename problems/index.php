@@ -10,7 +10,7 @@
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/main.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer.php" ?>
     <script type="text/javascript">
-      $('.link_main').addClass('active');
+      $('.link_tasks').addClass('active');
     </script>
   </body>
 </html>
