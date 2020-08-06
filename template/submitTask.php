@@ -21,7 +21,7 @@
 
             <!-- Возможность выбрать файл для сдачи-->
             <div class="custom-file col-lg-3 col-md-4 col">
-                <input type="file" class="custom-file-input" id="customFile">
+                <input type="file" class="custom-file-input" id="customFile" accept="text/x-c,text/x-java-source,text/plain">
                 <label class="custom-file-label" for="customFile">Выберите файл</label>
             </div>
 
