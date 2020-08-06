@@ -14,7 +14,14 @@
           <div class="h2" align="center">Создание профиля</div>
           <div class="h5" align="center">Маленькое начало большого пути</div>
 
-          <?php echo $issue_el; ?>
+          <!-- Сообщение об ошибке -->
+          <div class="mt-4">
+            <div class="alert alert-danger">
+              <?php echo $issue_el; ?>
+            </div>
+          </div>
+          
+
           <form action='index.php' method='POST'>
             
             <!-- Логин -->

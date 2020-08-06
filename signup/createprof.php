@@ -42,7 +42,7 @@
             $issues[] = 'Введенные пароли не совпадают!';
 
         if (!empty($issues))
-            $issue_el = '<div style="margin-left: 5vw;">'.$issues[0].'</div><BR>';
+            $issue_el = $issues[0];
         else
         {
             $user = R::dispense('userlogindata');
