@@ -72,8 +72,8 @@
 
           <!-- Форма авторизации -->
           <div class="modal-body">
-            <form action = "/setconfig.php" method = "POST">
-              
+            <form action = "/setconfig.php" method = "POST" onsubmit="document.getElementById('referrer').value=window.location">
+              <input type="hidden" id="referrer" name="ref">
               <!-- Логин или email -->
               <div class="form-group">
                 <label for="login">Логин или email</label>

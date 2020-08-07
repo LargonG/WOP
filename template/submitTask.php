@@ -2,7 +2,23 @@
     <form enctype='multipart/form-data' action="/template/testProblem.php" method="POST" onsubmit="document.getElementById('referrer').value=window.location">
         <input type="hidden" id="referrer" name="ref">
         <div class="form-group row">
-
+            <?php if (isset($_COOKIE['name'])): ?>
+            <script type="text/javascript">
+                function checklen()
+                {
+                    let sub_button = document.getElementById('submit');
+                    if (!document.getElementById('code_tarea').value)
+                    {
+                        sub_button.disabled = true;
+                        sub_button.title = "Вы не можете отправить пустой код";
+                    }
+                    else
+                    {
+                        sub_button.disabled = false;
+                        sub_button.title = "";
+                    }
+                }
+            </script>
             <!-- Список языков для сдачи -->
             <div class="col-12 p-0">
                 <select name="lang" class="custom-select bg-code text-light">
@@ -17,7 +33,7 @@
 
             <!-- Поле для вставки кода-->
             <div class="col-12 p-0">
-                <textarea wrap="soft | hard" name="code_tarea" class="col-12 bg-code text-light border-0" id="" cols="30" rows="10" placeholder="Введите код здесь или отправьте файл, содержащий решение задачи."></textarea>
+                <textarea oninput="checklen()" wrap="soft | hard" name="code_tarea" class="col-12 bg-code text-light border-0" id="code_tarea" cols="30" rows="10" placeholder="Введите код здесь или отправьте файл, содержащий решение задачи."></textarea>
             </div>
 
             <!-- Возможность выбрать файл для сдачи-->
@@ -28,9 +44,11 @@
 
             <!-- Кнопка триггер -->
             <div class="col">
-                <button name="sub" type="submit" class="btn text-light bg-code"<?php if (!isset($_COOKIE['name'])) echo ' disabled title="Авторизуйтесь, чтобы отправлять задачи"'; ?>>Отправить</button>
+                <button id="submit" name="sub" type="submit" class="btn text-light bg-code" disabled>Отправить</button>
             </div>
-
+            <?php else: ?>
+            <span class='h2'>Авторизуйтесь, чтобы отправлять задачи на проверку</span>
+            <?php endif ?>
         </div>
         
         

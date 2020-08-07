@@ -42,12 +42,12 @@
     setcookie('name', userlogin(), time() + (86400 * 30), '/'); //тебе не кажется, что 30 дней жирновато?
     setcookie('logsuccess', 1, time() + (86400 * 30), '/');
     setcookie('lastenteredlogin', userlogin(), time() + (86400 * 30), '/');
-    header("Refresh: 0; url=http://prohardinf.ru/home");
+    header("Refresh: 0; url=".$_POST['ref']);
   }
   else
   {
     setcookie('logsuccess', 0, time() + 60, '/');
     setcookie('lastenteredlogin', $_POST['usname'], time() + 60, '/');
-    header("Refresh:0; url=index.php");
+    header("Refresh: 0; url=".$_POST['ref']);
   }
 ?>
