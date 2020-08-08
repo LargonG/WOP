@@ -13,8 +13,6 @@ const size_t maxmem = 64*1024*1024;//64 мбайта
 string submit_path;
 string test_path;
 string language;
-char *working_path[256];
-
 
 bool test_running = false;
 
@@ -78,8 +76,10 @@ size_t count_test_sets()
 void run_test(size_t num)
 {
     test_running = true;
-    system(("\""+submit_path+"/prog.exe\" <"+test_path+"/in"+to_string(num)+".txt >"+submit_path+"/out.txt").c_str());
+    SetCurrentDirectory(submit_path.c_str());
+    system(("prog <../../../"+test_path+"/in"+to_string(num)+".txt >../../../"+submit_path+"/out.txt").c_str());
     test_running = false;
+    SetCurrentDirectory("../../../");
 }
 
 int main()
@@ -96,12 +96,10 @@ int main()
         system("pause");
         return 0;
     }
-    cout << "Compilation success\n";
 
     size_t test_sets = count_test_sets();
     for (int i = 1; i <= test_sets; ++i)
     {
-        cout << i << endl;
         thread th(run_test, i);//выполнение на 1 тестовом наборе
         while (!test_running){}
         //system("pause");
@@ -118,16 +116,20 @@ int main()
                 break;
             }
             //мониторинг памяти
-            system("@echo off for /f %a in ('wmic process where \"name=\'prog.exe\'\" get WorkingSetSize^|findstr [0-9]\') do (set \"var=%a\" echo %a >curmem.txt)");
-            ifstream fin("curmem.txt");
-            size_t memory;
-            fin >> memory;
-            fin.close();
-            //cout << "Memory=" << memory / 1024 << " kbytes\n";
-            if (memory > maxmem)
+            system("for /f %a in ('wmic process where \"name=\'prog.exe\'\" get WorkingSetSize^|findstr [0-9]\') do echo %a >curmem.txt");
+            ifstream fin(submit_path+"curmem.txt");
+            if (fin.is_open())
             {
-                ML = true;
-                break;
+                size_t memory;
+                fin >> memory;
+                fin.close();
+            //cout << "Memory=" << memory / 1024 << " kbytes\n";
+                if (memory > maxmem)
+                {
+                    ML = true;
+                    break;
+                }
+                fin.close();
             }
         }
         system("taskkill /f /IM prog.exe");
@@ -147,7 +149,9 @@ int main()
         }
         else
         {
-            system(("fc "+submit_path+"/out.txt "+test_path+"/ans"+to_string(i)+".txt >NUL && echo OK >"+submit_path+"/comp.txt || echo WA >"+submit_path+"/comp.txt").c_str());
+            SetCurrentDirectory(submit_path.c_str());
+            system(("fc out.txt ../../../"+test_path+"/ans"+to_string(i)+".txt >NUL && echo OK >"+"comp.txt || echo WA >"+"comp.txt").c_str());
+            SetCurrentDirectory("../../../");
             ifstream checkans(submit_path+"/comp.txt");
             string status;
             checkans >> status;
@@ -166,7 +170,5 @@ int main()
         }
         fout.close();
     }
-    cout << "here";
-    system("pause");
     return 0;
 }
