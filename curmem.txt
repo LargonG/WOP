@@ -1,1 +1,0 @@
-off for /f %a in ('wmic process where "name='prog.exe'" get WorkingSetSize|findstr [0-9]') do (set "var=%a" echo %a 
