@@ -38,6 +38,7 @@ if (isset($_POST['sub']))
         $file = fopen("$submit_dir/main$file_extension", 'w');
         fwrite($file, $code_tarea);
         fclose($file);
+        //запустить тестировочный скрипт здесь
     }
     /*else
     {
