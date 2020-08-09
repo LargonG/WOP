@@ -3,6 +3,46 @@
         <input type="hidden" id="referrer" name="ref">
         <div class="form-group row">
             <?php if (isset($_COOKIE['name'])): ?>
+            <?php
+            $user = R::findOne('userlogindata', 'username = ?', array($_COOKIE['name']));
+            $user_id = $user->id;
+            $submits = R::find("submits$user_id", "problem_id = $problem_id AND report='Testing'");
+            $file = fopen($_SERVER['DOCUMENT_ROOT']."/tests/$problem_id/problem.cfg", 'r');
+            $test_sets = 0;
+            while (!feof($file))
+            {
+                $line = fgets($file);
+                if ($line == "")
+                    break;
+                $param = explode(":", $line)[0];
+                $value = trim(explode(":", $line)[1]);
+                if ($param == "test_sets")
+                {
+                    $test_sets = $param;
+                    break;
+                }
+            }
+            foreach ($submits as $i)
+            {
+                $counter = 1;
+                while (file_exists($_SERVER['DOCUMENT_ROOT']."/submits/$problem_id/$i->submit_id/report$counter.txt")) $counter++;
+                $counter--;
+                $report = file_get_contents($_SERVER['DOCUMENT_ROOT']."/submits/$problem_id/$i->submit_id/report$counter.txt");
+                if ($report == "WA" or $report == "TL" or $report == "ML")
+                {
+                    $i->report = "$report $counter";
+                    R::store($i);
+                }
+                else
+                {
+                    if ($counter == $test_sets)
+                    {
+                        $i->report = "OK";
+                        R::store($i);
+                    }
+                }
+            }
+            ?>
             <script type="text/javascript">
                 function checklen()
                 {
@@ -24,10 +64,10 @@
                 <select name="lang" class="custom-select bg-code text-light">
                     <!-- Тут по идее список должен формироваться через php -->
                     <!--Зачем здесь PHP если список будет фиксированный?-->
-                    <option value=".cpp" selected >C++</option>
-                    <option value=".java">Java</option>
-                    <option value=".c">C</option>
-                    <option value=".cs">C#</option>
+                    <option value="cpp" selected >C++</option>
+                    <option value="java">Java</option>
+                    <option value="c">C</option>
+                    <option value="cs">C#</option>
                 </select>
             </div>
 

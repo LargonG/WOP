@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
 function submit_id($dir)
 {
     $counter = 1;
@@ -35,16 +36,30 @@ if (isset($_POST['sub']))
 
     if (strlen($code_tarea) > 0)
     {
-        $file = fopen("$submit_dir/main$file_extension", 'w');
+        $file = fopen("$submit_dir/main.$file_extension", 'w');
         fwrite($file, $code_tarea);
         fclose($file);
-        //запустить тестировочный скрипт здесь
+
+        $file = fopen($_SERVER['DOCUMENT_ROOT']."/testengine.cfg", 'w');
+        $config = "task_id: $problem_id\nsubmit_id: $submit_id\nlang: $file_extension\n";
+        fwrite($file, $config);
+        fclose($file);
+
+        $user = R::findOne('userlogindata', 'username = ?', array($_COOKIE['name']));
+        $user_id = $user->id;
+        $bean = R::dispense("submits$user_id");
+        $bean->problem_id = $problem_id;
+        $bean->submit_id = $submit_id;
+        $bean->lang = $file_extension;
+        $bean->report = "Testing";
+        R::store($bean);
+        setcookie("last_submit", $problem_id, time() + (86400 * 30), "/");
+        header("Refresh: 0; url=/launch.php");
     }
     /*else
     {
         move_uploaded_file($_FILES['path']['tmp_name'], $submit_dir);
         //rename($submit_dir."/".$_FILES['path']['name'], "main$file_extension");
     }*/
-    header("Refresh: 0; url=$prev_page_url");
 }
 ?>

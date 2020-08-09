@@ -1,3 +1,5 @@
+//TODO ОПТИМИЗИРОВАТЬ ИМЯ ПРОЦЕССОВ ПОД МНОГОПОТОЧНУЮ ЗАГРУЗКУ (НАВЗВАНИЕ ПРОГРАММЫ - prog_idзалачи_idпосылки)
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -7,8 +9,9 @@
 
 using namespace std;
 
+//константы передаются из каких то файлов
 size_t time_limit;
-size_t maxmem;
+size_t maxmem;//64 мбайта
 size_t test_sets;
 string submit_path;
 string test_path;
@@ -36,6 +39,7 @@ void load_config()
 {
     ifstream fin("testengine.cfg");
     while (!fin.is_open()) fin.open("testengine.cfg");
+    cout << "here\n";
 
     //информация для компиляции/тестов
     string task_id, submit_id, lang;
@@ -68,6 +72,7 @@ void load_config()
     //информация по TL, ML, кол-ву тестовых наборов
     fin.open(test_path+"/problem.cfg");
     while (!fin.is_open()) fin.open(test_path+"/problem.cfg");
+    cout << "here\n";
 
     while (!fin.eof())
     {
@@ -104,10 +109,14 @@ void run_test(size_t num)
 
 int main()
 {
+    ofstream test_fout("started.txt");
+    test_fout << "I STARTED";
+    test_fout.close();
+    cout << "here\n";
     load_config();
+    cout << "here\n";
     //cout << submit_path << " " << language << endl;
-    if (language == "cpp")
-        system(("g++ -o "+submit_path+"/"+prog_name+" "+submit_path+"/main."+language+"").c_str());
+    system(("g++ -o "+submit_path+"/"+prog_name+" "+submit_path+"/main."+language+"").c_str());
 
     ifstream exe((submit_path+"/"+prog_name+".exe").c_str());
     if (!exe.is_open())

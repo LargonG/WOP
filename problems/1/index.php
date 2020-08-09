@@ -1,3 +1,7 @@
+<?php
+$divided = explode("\\", __DIR__);
+$problem_id = $divided[count($divided) - 1];
+?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
