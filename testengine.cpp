@@ -7,13 +7,13 @@
 
 using namespace std;
 
-//константы передаются из каких то файлов
 size_t time_limit;
-size_t maxmem;//64 мбайта
+size_t maxmem;
 size_t test_sets;
 string submit_path;
 string test_path;
 string language;
+string prog_name;
 
 bool test_running = false;
 
@@ -63,6 +63,7 @@ void load_config()
     submit_path = "submits/"+task_id+"/"+submit_id;
     test_path = "tests/"+task_id;
     language = lang;
+    prog_name = "prog_"+task_id+"_"+submit_id;
 
     //информация по TL, ML, кол-ву тестовых наборов
     fin.open(test_path+"/problem.cfg");
@@ -96,7 +97,7 @@ void run_test(size_t num)
 {
     test_running = true;
     SetCurrentDirectory(submit_path.c_str());
-    system(("prog <../../../"+test_path+"/in"+to_string(num)+".txt >../../../"+submit_path+"/out.txt").c_str());
+    system((prog_name+" <../../../"+test_path+"/in"+to_string(num)+".txt >../../../"+submit_path+"/out.txt").c_str());
     test_running = false;
     SetCurrentDirectory("../../../");
 }
@@ -105,12 +106,14 @@ int main()
 {
     load_config();
     //cout << submit_path << " " << language << endl;
-    system(("g++ -o "+submit_path+"/prog "+submit_path+"/main."+language+"").c_str());
-    ifstream exe((submit_path+"/prog.exe").c_str());
+    if (language == "cpp")
+        system(("g++ -o "+submit_path+"/"+prog_name+" "+submit_path+"/main."+language+"").c_str());
+
+    ifstream exe((submit_path+"/"+prog_name+".exe").c_str());
     if (!exe.is_open())
     {
         ofstream fout((submit_path+"/compilation.txt").c_str());
-        cout << "compilation error";
+        //cout << "compilation error";
         fout.close();
         system("pause");
         return 0;
@@ -134,7 +137,7 @@ int main()
                 break;
             }
             //мониторинг памяти
-            system("for /f %a in ('wmic process where \"name=\'prog.exe\'\" get WorkingSetSize^|findstr [0-9]\') do echo %a >curmem.txt");
+            system(("for /f %a in ('wmic process where \"name=\'"+prog_name+".exe\'\" get WorkingSetSize^|findstr [0-9]\') do echo %a >curmem.txt").c_str());
             ifstream fin(submit_path+"curmem.txt");
             if (fin.is_open())
             {
@@ -150,7 +153,7 @@ int main()
                 fin.close();
             }
         }
-        system("taskkill /f /IM prog.exe");
+        system(("taskkill /f /IM "+prog_name+".exe").c_str());
         th.join();
         ofstream fout((submit_path+"/report"+to_string(i)+".txt").c_str());
         if (TL)
