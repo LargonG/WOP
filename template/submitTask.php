@@ -64,6 +64,7 @@
                 <select name="lang" class="custom-select bg-code text-light">
                     <!-- Тут по идее список должен формироваться через php -->
                     <!--Зачем здесь PHP если список будет фиксированный?-->
+                    <!-- Чтобы без труда добавлять новые языки:D -->
                     <option value="cpp" selected >C++</option>
                     <option value="java">Java</option>
                     <option value="c">C</option>
@@ -87,7 +88,9 @@
                 <button id="submit" name="sub" type="submit" class="btn text-light bg-code" disabled>Отправить</button>
             </div>
             <?php else: ?>
-            <span class='h2'>Авторизуйтесь, чтобы отправлять задачи на проверку</span>
+                <div class="text text-center col-12">
+                    <span class="h2 font-italic">Авторизуйтесь, чтобы отправлять задачи на проверку</span>
+                </div>
             <?php endif ?>
         </div>
         
