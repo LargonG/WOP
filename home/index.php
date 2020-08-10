@@ -79,7 +79,7 @@
                             
                         <!-- Ввод файла-->
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="avatarFile">
+                                <input type="file" class="custom-file-input" id="avatarFile" accept=".png,.jpg,.gif">
                                 <label class="custom-file-label" for="avatarFile">Сменить</label>
                             </div>
                             
