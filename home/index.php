@@ -63,11 +63,37 @@
     <div class="container context mt-2 bg-dark text-light">
         <div class="row">
 
-            <div class="col-2">
-                <img src=<?php $path = $_SERVER['DOCUMENT_ROOT']."/avatars/".$nickname.'.jpg'; if (file_exists($path)) echo "\""."/avatars/".$nickname.".jpg"."\""; else echo "/imgs/default_avatar.jpg"; ?> class="rounded mx-auto d-block img-fluid" width=150 height=150 alt="">
-            </div>
+            <!-- Аватар -->
+            <div class="col-md-2 col-sm-12 p-1">
+                <div class="row">
 
-            <div class="col-10">
+                    <!-- Картинка -->
+                    <div class="col-12">
+                        <img src=<?php $path = $_SERVER['DOCUMENT_ROOT']."/avatars/".$nickname.'.jpg'; if (file_exists($path)) echo "\""."/avatars/".$nickname.".jpg"."\""; else echo "/imgs/default_avatar.jpg"; ?>
+                        class="rounded mx-auto d-block img-fluid" alt="аватарка">
+                    </div>
+
+                    <!-- Возможность поменять картинку -->
+                    <div class="col-12 mt-2">
+                        <form class="form-group" action="">
+                            
+                        <!-- Ввод файла-->
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="avatarFile">
+                                <label class="custom-file-label" for="avatarFile">Сменить</label>
+                            </div>
+                            
+                            <!-- Кнопка "Изменить" -->
+                            <button class="btn btn-primary form-control mt-1" type="submit">Изменить</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            
+            
+            <!-- Никнейм -->
+            <div class="col-md-10 col-sm-12 p-1">
                 <div class="nickname h5">
                     <?php echo $nickname; if ($is_online) echo '<img src="/imgs/online.png" width=17 height=17 alt="" style="margin-left: 10px;" title="Онлайн">'; ?>
                 </div>
@@ -81,12 +107,16 @@
                 </div>
             </div>
             
-            <div class="col-12 mt-4 stats pt-3" id="stats">
-                <div class="col-12 text-light h3">Нет данных по решенным задачам</div>
+            <!-- Статистика по задачам -->
+            <div class="col-12 mt-4 pt-3">
+                <div class="row align-items-center stats" id="stats">
+                    <div class="col-12 text-light h3 text-center">Нет данных по решенным задачам</div>
+                </div>
             </div>
-            
+
+            <!-- Ачивки -->
             <div class="col-12 mt-2 pt-3 achievements">
-                <div class="col-12 text-light h3">Achievements</div>
+                <div class="col-12 text-light h3 text-left">Achievements</div>
             </div>
             
         </div>
