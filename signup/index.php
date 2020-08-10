@@ -11,8 +11,8 @@
       <div class="row">
         <div class="col-12 p-3">
 
-          <div class="h2" align="center">Создание профиля</div>
-          <div class="h5" align="center">Маленькое начало большого пути</div>
+          <div class="h2 text-center">Создание профиля</div>
+          <div class="h5 text-center">Маленькое начало большого пути</div>
 
           <!-- Сообщение об ошибке -->
           <div class="mt-4">
