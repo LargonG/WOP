@@ -168,7 +168,7 @@
 
             <!-- Ачивки -->
             <div class="col-12 mt-2 pt-3 achievements">
-                <div class="col-12 text-light h3 text-left">Achievements</div>
+                <div class="col-12 text-light h3 text-left">Ачивки</div>
             </div>
             
         </div>
