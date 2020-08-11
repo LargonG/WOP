@@ -53,7 +53,6 @@
 
             chart.draw(data, options);
         }
-    <?php else: ?>
     <?php endif ?>
     </script>
 </head>
@@ -71,6 +70,8 @@
                     <?php
                     if (isset($_POST['sub']) and $_FILES['avatar']['name'] != '')
                     {
+                        if (!file_exists($_SERVER['DOCUMENT_ROOT']."/avatars"))
+                            mkdir($_SERVER['DOCUMENT_ROOT']."/avatars");
                         $av_extenstions = array("jpg", "png", "gif");
                         foreach($av_extenstions as $i)
                         {
