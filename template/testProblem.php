@@ -1,4 +1,7 @@
 <?php
+
+// все заменить на сокеты
+
 require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
 function submit_id($dir)
 {
