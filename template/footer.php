@@ -15,7 +15,7 @@
 
     <!-- Список соцсетей -->
     <div class="col-md-4 col-12 mt-md-0 mt-4 mb-md-0 mb-4 text-center ml-auto">
-      
+
         <b>Мы в соцсетях:</b>
 
         <div class="row justify-content-center mt-1">
@@ -26,7 +26,7 @@
               else echo "http://prohardinf.ru/imgs/dvklink.png"; ?> class="snetlink img-fluid">
           </a>
 
-          <!-- Зачем на facebook? -->
+          <!-- Зачем нам facebook? -->
           <a class="d-flex" href="#" title="Facebook">
             <img src=<?php if (!isset($_COOKIE['lighttheme'])) echo "http://prohardinf.ru/imgs/fblink.png";
               else echo "http://prohardinf.ru/imgs/dfblink.png"; ?> class="snetlink img-fluid">
