@@ -1,4 +1,4 @@
-<div class="container context mt-2">
+<div class="container context">
     <div class="row">
         <div class="col-12 main bg-dark text-light p-0">
             <div class="text">

@@ -13,7 +13,7 @@
         height: 60px;
     }
 </style>
-<footer class="container text-light mt-2 bg-dark pt-1">
+<footer class="container text-light mt-4 bg-dark pt-1">
   <div class="row mb-auto">
     <div class="col-xl-8 col">
         <b>Мир олимпиадного программирования</b>
