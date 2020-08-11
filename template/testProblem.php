@@ -1,9 +1,13 @@
 <?php
 if (isset($_POST['sub']))
 {
-    $code = "lang:".$_POST['lang']."\n".$_POST['code_tarea'];
+    require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
+    $task_id = explode("/", $_POST['ref'])[count(explode("/", $_POST['ref'])) - 2];
+    $submit_id = count(R::getAll("SELECT * FROM submits$task_id")) + 1;
+    $code = "lang:".$_POST['lang']."\n"."task_id:$task_id\nsub_id:$submit_id\n".$_POST['code_tarea'];
+    $code = str_replace("\n\n", "\n", $code);
     $port = 1337;
-    $address = "192.168.50.155"; //здесь будет ip сервака, пока это только мой второй комп
+    $address = "192.168.50.19"; //здесь будет ip сервака, пока это только мой второй комп
 
     $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
@@ -27,5 +31,19 @@ if (isset($_POST['sub']))
 
     socket_close($socket);
     echo "sock closed";
+
+    $sender_id = R::findOne("userlogindata", "username = ?", array($_COOKIE['name']));
+
+    $bean = R::dispense("submits$task_id");
+    $bean->sender_id = $sender_id;
+    $bean->submit_id = $submit_id;
+    $bean->lang = $_POST['lang'];
+    $bean->status = "Testing";
+    $bean->text = $_POST['code_tarea'];
+    R::store($bean);
+
+    $bean = R::dispense("usersubmits$sender_id");
+    $bean->task_id = $task_id;
+    R::store($bean);
 }
 ?>
