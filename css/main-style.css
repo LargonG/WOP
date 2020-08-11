@@ -1,0 +1,14 @@
+/* Footer */
+.snetlink
+{
+    width: 3.25rem;
+    height: 3.25rem;
+    transition: 0.3s;
+    margin-right: 1vh;
+}
+
+.snetlink:hover
+{
+    width: 4.25rem;
+    height: 4.25rem;
+}
