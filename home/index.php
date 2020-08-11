@@ -64,7 +64,7 @@
         <div class="row">
 
             <!-- Аватар -->
-            <div class="col-md-2 col-sm-12 p-1">
+            <div class="col-md-2 col-4 p-1">
                 <div class="row">
 
                     <!-- Картинка -->
@@ -145,7 +145,7 @@
             
             
             <!-- Никнейм -->
-            <div class="col-md-10 col-sm-12 p-1">
+            <div class="col-md-10 col-8 p-1">
                 <div class="nickname h5">
                     <?php echo $nickname; if ($is_online) echo '<img src="/imgs/online.png" width=17 height=17 alt="" style="margin-left: 10px;" title="Онлайн">'; ?>
                 </div>
