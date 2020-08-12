@@ -14,7 +14,7 @@ if (isset($_POST['sub']))
     if ($socket === false)
         echo "Не удалось выполнить socket_create(): причина: " . socket_strerror(socket_last_error()) . "\n";
     else
-        echo "OK.\n";
+        //echo "OK.\n";
 
     $result = socket_connect($socket, $address, $port);
     if ($result === false)
@@ -23,17 +23,17 @@ if (isset($_POST['sub']))
         // header("Refresh: 0; url=".$_POST['ref']);
     }
     else 
-        echo "OK.\n";
+        //echo "OK.\n";
 
     $data = $code;
     socket_write($socket, $data, strlen($data));
-    echo "sent";
+    //echo "sent";
 
-    while ($out = socket_read($socket, 1024))
-        echo $out;
+    //while ($out = socket_read($socket, 1024))
+        //echo $out;
 
     socket_close($socket);
-    echo "sock closed";
+    //echo "sock closed";
 
     $sender_id = R::findOne("userlogindata", "username = ?", array($_COOKIE['name']))->id;
 
@@ -46,7 +46,8 @@ if (isset($_POST['sub']))
 
     $bean = R::dispense("usersubmits$sender_id");
     $bean->task_id = $task_id;
+    $bean->submit_id = $submit_id;
     R::store($bean);
-    header("Refresh: 0; url=".$_POST['ref']);
 }
+header("Refresh: 0; url=".$_POST['ref']);
 ?>
