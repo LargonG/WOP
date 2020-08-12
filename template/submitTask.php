@@ -1,8 +1,8 @@
 <div class="container-fluid mt-2">
     <form enctype='multipart/form-data' action="/template/testProblem.php" method="POST" onsubmit="document.getElementById('referrer').value=window.location">
-        <input type="hidden" id="referrer" name="ref">
         <div class="form-group row">
             <?php if (isset($_COOKIE['name'])): ?>
+            <input type="hidden" id="referrer" name="ref">
             <script type="text/javascript">
                 function checklen()
                 {

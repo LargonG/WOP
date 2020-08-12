@@ -18,7 +18,10 @@ if (isset($_POST['sub']))
 
     $result = socket_connect($socket, $address, $port);
     if ($result === false)
+    {
         echo "Не удалось выполнить socket_connect().\nПричина: ($result) " . socket_strerror(socket_last_error($socket)) . "\n";
+        // header("Refresh: 0; url=".$_POST['ref']);
+    }
     else 
         echo "OK.\n";
 
@@ -32,11 +35,10 @@ if (isset($_POST['sub']))
     socket_close($socket);
     echo "sock closed";
 
-    $sender_id = R::findOne("userlogindata", "username = ?", array($_COOKIE['name']));
+    $sender_id = R::findOne("userlogindata", "username = ?", array($_COOKIE['name']))->id;
 
     $bean = R::dispense("submits$task_id");
     $bean->sender_id = $sender_id;
-    $bean->submit_id = $submit_id;
     $bean->lang = $_POST['lang'];
     $bean->status = "Testing";
     $bean->text = $_POST['code_tarea'];
@@ -45,5 +47,6 @@ if (isset($_POST['sub']))
     $bean = R::dispense("usersubmits$sender_id");
     $bean->task_id = $task_id;
     R::store($bean);
+    header("Refresh: 0; url=".$_POST['ref']);
 }
 ?>
