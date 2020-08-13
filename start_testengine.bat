@@ -1,1 +1,0 @@
-start testengine.exe >/dev/null/

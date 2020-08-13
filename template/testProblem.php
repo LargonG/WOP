@@ -47,6 +47,7 @@ if (isset($_POST['sub']))
     $bean = R::dispense("usersubmits$sender_id");
     $bean->task_id = $task_id;
     $bean->submit_id = $submit_id;
+    $bean->date = date("d.m.Y");
     R::store($bean);
 }
 header("Refresh: 0; url=".$_POST['ref']);
