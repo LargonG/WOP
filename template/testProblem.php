@@ -7,7 +7,7 @@ if (isset($_POST['sub']))
     $code = "lang:".$_POST['lang']."\n"."task_id:$task_id\nsub_id:$submit_id\n".$_POST['code_tarea'];
     $code = str_replace("\n\n", "\n", $code);
     $port = 1337;
-    $address = "192.168.50.19"; //здесь будет ip сервака, пока это только мой второй комп
+    $address = "localhost"; //здесь будет ip сервака, пока это только мой второй комп
 
     $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
