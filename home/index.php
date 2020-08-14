@@ -19,9 +19,33 @@
     <title>Домашняя | Мир олимпиадного программирования</title>
     <script type="text/javascript">
         <?php
+        $Months = array("", "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь");
         $problem_stats_str = '';
-        $problem_stats = R::getAll('SELECT * FROM stats'.$user_userlogindata->id);
+        $problem_stats = R::getAll("SELECT * FROM usersubmits$user_userlogindata->id");
+        $st_arr = array();
+        $used_problem_ids = array();
+        $last_date = array("month" => 0, "year" => 0);
         foreach ($problem_stats as $i)
+        {
+            if (in_array($i['task_id'], $used_problem_ids))
+                continue;
+            $sub_status = R::findOne("submits".$i['task_id'], "id = ?", array($i['submit_id']))->status;
+            if ($sub_status == "OK")
+            {
+                $month = (int)explode(".", $i['date'])[1];
+                $year = (int)explode(".", $i['date'])[2];
+                if ($month != $last_date['month'] or $year != $last_date['year'])
+                {
+                    $st_arr[] = array("month" => $Months[$month]." $year", "problemscounter" => 1);
+                    $last_date['month'] = $month;
+                    $last_date['year'] = $year;
+                }
+                else
+                    $st_arr[count($st_arr) - 1]['problemscounter']++;
+                $used_problem_ids[] = $i['task_id'];
+            }
+        }
+        foreach ($st_arr as $i)
             $problem_stats_str = $problem_stats_str.'['.'\''.$i['month'].'\','.$i['problemscounter'].'],';
         if ($problem_stats_str != ''):
         ?>
@@ -31,7 +55,6 @@
         {
             var data = new google.visualization.DataTable();
             var data = google.visualization.arrayToDataTable([['Month', 'Количество задач'],<?php echo $problem_stats_str; ?>]);
-            //график просто как образец, данные нужно получать при помощи php
 
             var options = {
             title: 'Количество решенных задач',
