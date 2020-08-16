@@ -1,8 +1,8 @@
 <?php
 if (isset($_POST['sub']))
 {
-    $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
     require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
+    $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
     $task_id = explode("/", $_POST['ref'])[count(explode("/", $_POST['ref'])) - 2];
     $submit_id = count(R::getAll("SELECT * FROM submits$task_id")) + 1;
     $code = "lang:".$_POST['lang']."\n"."task_id:$task_id\nsub_id:$submit_id\n".$_POST['code_tarea'];
