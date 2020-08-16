@@ -1,8 +1,9 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
-if (isset($_COOKIE['name']))
+if (isset($_COOKIE['token']))
 {
-    $user = R::findOne('userlogindata', 'username = ?', array($_COOKIE['name']));
+    $username = R::findOne("tokens", "token = ?", array($_COOKIE['token']))->username;
+    $user = R::findOne('userlogindata', 'username = ?', array($username));
     $user = R::findOne('profiledata', 'id = ?', array($user->id));
     $user->last_active = time();
     R::store($user);

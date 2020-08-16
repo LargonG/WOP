@@ -44,7 +44,10 @@
     while (R::findOne('tokens', 'token = ?', array($token)))
       $token = hash('sha256', rand(1000000, 10000000));
     
-    $usname = trim($_POST['usname']);
+    $usname = userlogin();
+    $last_token = R::findOne("tokens", "username = ?", array($usname));
+    if ($last_token)
+      R::trash($last_token);
     $bean = R::dispense('tokens');
     $bean->token = $token;
     $bean->username = $usname;
