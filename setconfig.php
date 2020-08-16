@@ -39,15 +39,21 @@
 
   if(entered())
   {
-    setcookie('name', userlogin(), time() + (86400 * 30), '/'); //тебе не кажется, что 30 дней жирновато?
-    setcookie('logsuccess', 1, time() + (86400 * 30), '/');
-    setcookie('lastenteredlogin', userlogin(), time() + (86400 * 30), '/');
+
+    $token = hash('sha256', rand(1000000, 10000000));
+    while (R::findOne('tokens', 'token = ?', array($token)))
+      $token = hash('sha256', rand(1000000, 10000000));
+    
+    $usname = trim($_POST['usname']);
+    $bean = R::dispense('tokens');
+    $bean->token = $token;
+    $bean->username = $usname;
+    R::store($bean);
+    setcookie("token", $token, time() + (86400 * 30), '/');
     header("Refresh: 0; url=".$_POST['ref']);
   }
   else
   {
-    setcookie('logsuccess', 0, time() + 60, '/');
-    setcookie('lastenteredlogin', $_POST['usname'], time() + 60, '/');
     header("Refresh: 0; url=".$_POST['ref']);
   }
 ?>

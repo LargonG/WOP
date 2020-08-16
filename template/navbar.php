@@ -1,3 +1,4 @@
+<?php if (isset($_COOKIE['token'])) $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username; ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <a class="navbar-brand" href="/">ProfiHard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +37,7 @@
       <!-- Список закончен -->
 
       <!-- Пользователь не авторизирован -->
-      <?php if (!$_COOKIE['name']): ?>
+      <?php if (!$username): ?>
 
       <!-- Ссылка авторизации -->
       <!-- Показывается только тогда, когда экран меньше среднего (телефон, планшет) -->
@@ -48,7 +49,7 @@
     </ul>
 
     <!-- Пользователь не авторизирован -->
-    <?php if (!$_COOKIE['name']): ?>
+    <?php if (!$username): ?>
     
     <!-- Кнопка видна с компьютеров, когда экран не меньше среднего -->
     <button type="button" class="btn btn-secondary d-none d-md-block" data-toggle="modal" data-target="#signin">
@@ -126,7 +127,7 @@
     <span class="d-block d-md-none border-top border-secondary"></span>
     <span class="navbar-text font-italic h5" align=center>
       <a href="/home">
-        <?php echo $_COOKIE['name']; ?>
+        <?php echo $username; ?>
       </a>
     </span>
     

@@ -58,8 +58,19 @@
             $user->courses = '';
             $user->achievements = '';
             R::store($user);
+
+
+            $token = hash('sha256', rand(1000000, 10000000));
+            while (R::findOne('tokens', 'token = ?', array($token)))
+                $token = hash('sha256', rand(1000000, 10000000));
             
-            require "upd_cookies.php";
+            $bean = R::dispense('tokens');
+            $bean->token = $token;
+            $bean->username = $login;
+            R::store($bean);
+
+            setcookie("token", $token, time() + (86400 * 30), '/');
+            header("Refresh: 0; url=http://prohardinf.ru/home");
         }
     }
 ?>

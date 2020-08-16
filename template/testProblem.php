@@ -1,6 +1,7 @@
 <?php
 if (isset($_POST['sub']))
 {
+    $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
     require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
     $task_id = explode("/", $_POST['ref'])[count(explode("/", $_POST['ref'])) - 2];
     $submit_id = count(R::getAll("SELECT * FROM submits$task_id")) + 1;
@@ -35,7 +36,7 @@ if (isset($_POST['sub']))
     socket_close($socket);
     //echo "sock closed";
 
-    $sender_id = R::findOne("userlogindata", "username = ?", array($_COOKIE['name']))->id;
+    $sender_id = R::findOne("userlogindata", "username = ?", array($username))->id;
 
     $bean = R::dispense("submits$task_id");
     $bean->sender_id = $sender_id;
