@@ -23,7 +23,7 @@
             <td>25.02.2021</td>
             <td><a class="text-primary" href="#">A + B</a></td>
             <td>LangGO</td>
-            <td>ThL</td>
+            <td>ThL 6</td>
             <td>0.4 sec</td>
             <td>502 MB</td>
         </tr>
