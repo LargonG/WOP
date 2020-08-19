@@ -11,6 +11,7 @@
 * MySQL 5.6 
 * jQuery, Vue.js
 * RedBeanPHP
+* В качестве локального хостинга используется OpenServer
 
 # Теоретическая часть
 
