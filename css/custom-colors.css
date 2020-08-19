@@ -5,3 +5,8 @@
 .bg-dark-blue, html, body {
     background-color: #242427;
 }
+
+.color-invert {
+    -webkit-filter: invert(100%); /* Safari/Chrome */
+    filter: invert(100%);
+}
