@@ -1,4 +1,11 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php'; ?>
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
+if (isset($_GET['page']))
+    $page_number = $_GET['page'];
+else
+    $page_number = 1;
+$problems = R::find("problems", "id > ? AND id <= ?", array(($page_number - 1)*100, 100*$page_number));
+?>
 <table class="table table-dark bg-dark table-hover table-striped table-sm m-0">
     <!-- Заголовки -->
     <thead>
@@ -15,30 +22,14 @@
         <!-- Сюда вставляем попытки-->
 
         <!-- Экземпляр -->
+        <?php foreach ($problems as $i): ?>
         <tr>
-            <td score="row"><a class="text-primary" href="1/">1</a></td>
-            <td><a class="text-primary" href="1/">A + B</a></td>
-            <td>1337</td>
+            <td score="row"><a class="text-primary" href="<?php echo $i->id; ?>/"><?php echo $i->id; ?></a></td>
+            <td><a class="text-primary" href="<?php echo $i->id; ?>/"><?php echo $i->title; ?></a></td>
+            <td><?php echo count(R::find("submits$i->id", "status = \"OK\"")); ?></td>
             <td></td>
         </tr>
-        <tr>
-            <td score="row"><a class="text-primary" href="2/">2</a></td>
-            <td><a class="text-primary" href="2/">Гарри Поттер на озере</a></td>
-            <td>5234</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td score="row"><a class="text-primary" href="3/">3</a></td>
-            <td><a class="text-primary" href="3/">Гарри Поттер в магазине</a></td>
-            <td>41532</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td score="row"><a class="text-primary" href="4/">4</a></td>
-            <td><a class="text-primary" href="4/">Вызов принят</a></td>
-            <td>43</td>
-            <td></td>
-        </tr>
+        <?php endforeach; ?>
     </tbody>
 
 </table>

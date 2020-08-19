@@ -40,9 +40,18 @@
   if(entered())
   {
 
-    $token = hash('sha256', rand(1000000, 10000000));
+    $alphabet = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLCZXCVBNM[]{}-_=+!@#$%^&*();:\"'\\|/?.,<>";
+    $token = "";
+    for ($i = 0; $i < 100; $i++)
+      $token .= $alphabet[random_int(0, strlen($alphabet) - 1)];
+    $token = hash('sha256', $token);
     while (R::findOne('tokens', 'token = ?', array($token)))
-      $token = hash('sha256', rand(1000000, 10000000));
+    {
+      $token = "";
+      for ($i = 0; $i < 100; $i++)
+          $token .= $alphabet[random_int(0, strlen($alphabet) - 1)];
+      $token = hash('sha256', $token);
+    }
     
     $usname = userlogin();
     $last_token = R::findOne("tokens", "username = ?", array($usname));
