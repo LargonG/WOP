@@ -43,6 +43,8 @@ if (isset($_POST['sub']))
     $bean->lang = $_POST['lang'];
     $bean->status = "Testing";
     $bean->text = $_POST['code_tarea'];
+    $bean->maxtime = -1;
+    $bean->maxmem = -1;
     R::store($bean);
 
     $bean = R::dispense("usersubmits$sender_id");

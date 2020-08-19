@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php'; ?>
 <table class="table table-dark bg-dark table-hover table-striped table-sm m-0">
     <!-- Заголовки -->
     <thead>
@@ -17,7 +18,7 @@
         <tr>
             <td score="row"><a class="text-primary" href="1/">1</a></td>
             <td><a class="text-primary" href="1/">A + B</a></td>
-            <td>146392</td>
+            <td>1337</td>
             <td></td>
         </tr>
         <tr>
