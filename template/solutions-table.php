@@ -1,4 +1,4 @@
-<table class="table bg-black table-striped">
+<table class="table bg-black table-dark table-hover">
     
     <!-- Заголовки -->
     <thead>
@@ -19,7 +19,34 @@
 
         <!-- Экземпляр -->
         <tr>
-            <td score="row"><a class="text-primary" href="#"> 1</a></td>
+            <td score="row"><a class="text-primary" href="#">1</a></td>
+            <td>25.02.2021</td>
+            <td><a class="text-primary" href="#">A + B</a></td>
+            <td>LangGO</td>
+            <td>ThL 6</td>
+            <td>0.4 sec</td>
+            <td>502 MB</td>
+        </tr>
+        <tr>
+            <td score="row"><a class="text-primary" href="#">2</a></td>
+            <td>25.02.2021</td>
+            <td><a class="text-primary" href="#">A + B</a></td>
+            <td>LangGO</td>
+            <td>ThL 6</td>
+            <td>0.4 sec</td>
+            <td>502 MB</td>
+        </tr>
+        <tr>
+            <td score="row"><a class="text-primary" href="#">3</a></td>
+            <td>25.02.2021</td>
+            <td><a class="text-primary" href="#">A + B</a></td>
+            <td>LangGO</td>
+            <td>ThL 6</td>
+            <td>0.4 sec</td>
+            <td>502 MB</td>
+        </tr>
+        <tr>
+            <td score="row"><a class="text-primary" href="#">4</a></td>
             <td>25.02.2021</td>
             <td><a class="text-primary" href="#">A + B</a></td>
             <td>LangGO</td>
