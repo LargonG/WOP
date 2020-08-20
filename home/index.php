@@ -1,15 +1,12 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
     require $_SERVER['DOCUMENT_ROOT']."/setOnline.php";
-    $nickname = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
-    $user_userlogindata = R::findOne('userlogindata', 'username = ?', array($nickname));
-    $user_profiledata = R::findOne('profiledata', 'id = ?', array($user_userlogindata->id));
-    if ($user_profiledata->showemail)
-        $email = $user_userlogindata->email;
+    if ((bool)$_USER["showemail"])
+        $email = $_USER["email"];
     else
         $email = "Эл. почта скрыта";
-    $role = $user_profiledata->role;
-    $is_online = ((time() - $user_profiledata->last_active) < 3 * 60);
+    $role = $_USER["role"];
+    $is_online = ((time() - $_USER["last_active"]) < 3 * 60);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +18,7 @@
         <?php
         $Months = array("", "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь");
         $problem_stats_str = '';
-        $problem_stats = R::getAll("SELECT * FROM usersubmits$user_userlogindata->id");
+        $problem_stats = R::getAll("SELECT * FROM usersubmits".$_USER["id"]);
         $st_arr = array();
         $used_problem_ids = array();
         $last_date = array("month" => 0, "year" => 0);
@@ -100,14 +97,14 @@
                         $av_extenstions = array("jpg", "png", "gif");
                         foreach($av_extenstions as $i)
                         {
-                            if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$i"))
+                            if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$i"))
                             {
-                                unlink($_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$i");
+                                unlink($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$i");
                                 break;
                             }
                         }
                         $avatar_extension = explode(".", $_FILES['avatar']['name'])[count(explode(".", $_FILES['avatar']['name'])) - 1];
-                        if (move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$avatar_extension"))
+                        if (move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension"))
                         {
                             //echo "File uploaded";
                         }
@@ -116,23 +113,21 @@
                             //echo "No file";
                         }
 
-                        //rename($_SERVER['DOCUMENT_ROOT']."/avatars/".$_FILES['uploadFile']['name'], $_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$avatar_extension");
-
                         //обрезка до квадрата относительно центра
                         $im = null;
                         if ($avatar_extension == "jpg" or $avatar_extension == "jpeg")
-                            $im = imagecreatefromjpeg($_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$avatar_extension");
+                            $im = imagecreatefromjpeg($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension");
                         if ($avatar_extension == "png")
-                            $im = imagecreatefrompng($_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$avatar_extension");
+                            $im = imagecreatefrompng($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension");
                         if ($avatar_extension == "gif")
-                            $im = imagecreatefromgif($_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$avatar_extension");
+                            $im = imagecreatefromgif($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension");
                         $size = min(imagesx($im), imagesy($im));
                         $x = (imagesx($im) - $size) / 2;
                         $y = (imagesy($im) - $size) / 2;
                         $im2 = imagecrop($im, ['x' => $x, 'y' => $y, 'width' => $size, 'height' => $size]);
                         if ($im2 !== FALSE)
                         {
-                            imagepng($im2, $_SERVER['DOCUMENT_ROOT']."/avatars/$user_userlogindata->id.$avatar_extension");
+                            imagepng($im2, $_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension");
                             imagedestroy($im2);
                         }
                         imagedestroy($im);
@@ -141,12 +136,12 @@
                     <div class="col-12">
                         <img src=
                         <?php
-                        if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/".$user_userlogindata->id.".jpg"))
-                            echo "\""."/avatars/".$user_userlogindata->id.".jpg"."\"";
-                        else if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/".$user_userlogindata->id.".png"))
-                            echo "\""."/avatars/".$user_userlogindata->id.".png"."\"";
-                        else if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/".$user_userlogindata->id.".gif")) 
-                            echo "\""."/avatars/".$user_userlogindata->id.".gif"."\"";
+                        if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".jpg"))
+                            echo "\""."/avatars/".$_USER["id"].".jpg"."\"";
+                        else if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".png"))
+                            echo "\""."/avatars/".$_USER["id"].".png"."\"";
+                        else if (file_exists($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".gif")) 
+                            echo "\""."/avatars/".$_USER["id"].".gif"."\"";
                         else echo "/imgs/default_avatar.jpg"; ?>
                         class="rounded mx-auto d-block img-fluid" alt="аватарка">
                     </div>
@@ -173,7 +168,7 @@
             <!-- Никнейм -->
             <div class="col-md-10 col-8 p-1">
                 <div class="nickname h5">
-                    <?php echo $nickname; if ($is_online) echo '<img src="/imgs/online.png" width=17 height=17 alt="" style="margin-left: 10px;" title="Онлайн">'; ?>
+                    <?php echo $_USER["username"]; if ($is_online) echo '<img src="/imgs/online.png" width=17 height=17 alt="" style="margin-left: 10px;" title="Онлайн">'; ?>
                 </div>
 
                 <div class="role h6 font-weight-normal">

@@ -1,8 +1,8 @@
-<?php if (isset($_COOKIE['token'])) $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/database/dbase.php"; ?>
 <div class="container-fluid mt-2">
     <form enctype='multipart/form-data' action="/template/testProblem.php" method="POST" onsubmit="document.getElementById('referrer').value=window.location">
         <div class="form-group row">
-            <?php if (isset($username)): ?>
+            <?php if (isset($_USER)): ?>
             <input type="hidden" id="referrer" name="ref">
             <script type="text/javascript">
                 function checklen()

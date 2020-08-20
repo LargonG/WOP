@@ -2,7 +2,6 @@
 if (isset($_POST['sub']))
 {
     require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php";
-    $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
     $task_id = explode("/", $_POST['ref'])[count(explode("/", $_POST['ref'])) - 2];
     $submit_id = count(R::getAll("SELECT * FROM submits$task_id")) + 1;
     $code = "lang:".$_POST['lang']."\n"."task_id:$task_id\nsub_id:$submit_id\n".$_POST['code_tarea'];
@@ -36,10 +35,8 @@ if (isset($_POST['sub']))
     socket_close($socket);
     //echo "sock closed";
 
-    $sender_id = R::findOne("userlogindata", "username = ?", array($username))->id;
-
     $bean = R::dispense("submits$task_id");
-    $bean->sender_id = $sender_id;
+    $bean->sender_id = $_USER["id"];
     $bean->lang = $_POST['lang'];
     $bean->status = "Testing";
     $bean->text = $_POST['code_tarea'];
@@ -47,11 +44,11 @@ if (isset($_POST['sub']))
     $bean->maxmem = -1;
     R::store($bean);
 
-    $bean = R::dispense("usersubmits$sender_id");
+    $bean = R::dispense("usersubmits".$_USER["id"]);
     $bean->task_id = $task_id;
     $bean->submit_id = $submit_id;
     $bean->date = date("d.m.Y");
     R::store($bean);
+    header("Refresh: 0; url=".$_POST['ref']);
 }
-header("Refresh: 0; url=".$_POST['ref']);
 ?>

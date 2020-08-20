@@ -1,13 +1,12 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
-if (isset($_COOKIE['token']))
+$user_submits = array();
+if (isset($_USER))
 {
-    $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
-    $user_id = R::findOne("userlogindata", "username = ?", array($username))->id;
-    $user_submits = array_reverse(R::find("submits$problem_id", "sender_id = ?", array($user_id)));
+    $user_submits = array_reverse(R::find("submits$problem_id", "sender_id = ?", array($_USER["id"])));
     $problem_title = R::findOne("problems", "id = ?", array($problem_id))->title;
 }
-if (isset($username) and count($user_submits) != 0):
+if (count($user_submits) != 0):
 ?>
 <table class="table bg-black table-dark table-hover">
     
@@ -30,7 +29,7 @@ if (isset($username) and count($user_submits) != 0):
         <?php foreach ($user_submits as $i): ?>
         <tr>
             <?php
-            $submit_date = R::findOne("usersubmits$user_id", "submit_id = ? and task_id = ?", array($i->id, $problem_id))->date;
+            $submit_date = R::findOne("usersubmits".$_USER["id"], "submit_id = ? and task_id = ?", array($i->id, $problem_id))->date;
             $languages = array("cpp" => "C++", "java" => "Java", "c" => "C", "cs" => "C#");
             $max_memory = $i->maxmem / 1024;
 

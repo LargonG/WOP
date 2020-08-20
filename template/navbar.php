@@ -37,7 +37,7 @@
       <!-- Список закончен -->
 
       <!-- Пользователь не авторизирован -->
-      <?php if (!$_USER["NAME"]): ?>
+      <?php if (!isset($_USER)): ?>
 
       <!-- Ссылка авторизации -->
       <!-- Показывается только тогда, когда экран меньше среднего (телефон, планшет) -->
@@ -49,7 +49,7 @@
     </ul>
 
     <!-- Пользователь не авторизирован -->
-    <?php if (!$_USER["NAME"]): ?>
+    <?php if (!isset($_USER)): ?>
     
     <!-- Кнопка видна с компьютеров, когда экран не меньше среднего -->
     <button type="button" class="btn btn-secondary d-none d-md-block" data-toggle="modal" data-target="#signin">
@@ -131,7 +131,7 @@
 
           <a class="nav-link dropdown-toggle" href="#" id="login-menu" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-            <?php echo $_USER["NAME"]; ?>
+            <?php echo $_USER["username"]; ?>
           </a>
 
           <div class="dropdown-menu dropdown-menu-black dropdown-menu-lg-right" aria-labelledby="login-menu">
