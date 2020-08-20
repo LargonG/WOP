@@ -1,6 +1,6 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
-    $issue_el = '';
+    $issues = array();
 
     if (isset($_POST['sub']))
     {
@@ -12,34 +12,28 @@
         $role = $_POST['role'];
 
         if (strlen($login) == 0)
-            $issues[] = 'Логин не может быть пустым.';
+            $issues["login-error"] = 'Логин не может быть пустым.';
+        else if (strlen($login) < 6)
+            $issues["login-error"] = 'Длина логина должна быть не меньше 6 символов.';
+        else if (strripos($login, ' ') != false)
+            $issues["login-error"] = 'Логин не может содержать пробелов.';
+        else if (ctype_digit($login))
+            $issues["login-error"] = 'Логин не может содержать только цифры.';
+        else if (R::findOne('userlogindata', 'username = ?', array($_POST['usname'])))
+            $issues["login-error"] = 'Такой логин занят. Попробуйте другой.';
 
-        if (strlen($login) < 6)
-            $issues[] = 'Длина логина должна быть не меньше 6 символов.';
-
-        if (strripos($login, ' ') != false)
-            $issues[] = 'Логин не может содержать пробелов.';
-
-        if (ctype_digit($login))
-            $issues[] = 'Логин не может содержать только цифры.';
-        
         if ($role == "norole")
-            $issues[] = 'Выберите роль.';
-
-        if (R::findOne('userlogindata', 'username = ?', array($_POST['usname'])))
-            $issues[] = 'Такой логин занят. Попробуйте другой.';
+            $issues["role-error"] = 'Выберите роль.';
 
         if (strlen($email) == 0)
-            $issues[] = 'E-mail не может быть пустым!';
-
-        if (R::findOne('userlogindata', "email = ?", array($email)))
-            $issues[] = 'Аккаунт, привязанный к этому E-mail уже существует.';
+            $issues["email-error"] = 'E-mail не может быть пустым!';
+        else if (R::findOne('userlogindata', "email = ?", array($email)))
+            $issues["email-error"] = 'Аккаунт, привязанный к этому E-mail уже существует.';
 
         if (strlen($pass) < 6)
-            $issues[] = 'В целях вашей безопасности, пароль должен не короче 6 символов.';
-
-        if ($pass != $rpass)
-            $issues[] = 'Введенные пароли не совпадают!';
+            $issues["password-error"] = 'В целях вашей безопасности, пароль должен быть не короче 6 символов.';
+        else if ($pass != $rpass)
+            $issues["password-repeat-error"] = 'Введенные пароли не совпадают!';
 
         if (!empty($issues))
             $issue_el = $issues[0];
