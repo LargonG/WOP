@@ -126,20 +126,21 @@
     <!-- Линия, которая отображается в случае, когда navbar свёрнут -->
     <span class="d-block d-md-none border-top border-secondary"></span>
 
-    <span class="navbar-text font-italic font-weight-bold">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
+    <ul class="navbar-nav font-italic font-weight-bold">
+      <li class="nav-item dropdown">
 
-            <a class="nav-link dropdown-toggle" href="#" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="login-menu" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
             <?php echo $_USER["NAME"]; ?>
-            </a>
-            <div class="dropdown-menu dropdown-menu-black dropdown-menu-lg-right" aria-labelledby="login-menu">
-              <a class="dropdown-item" href="/home">Домашняя</a>
-              <a class="dropdown-item text-danger" href="/template/logout.php">Выйти</a>
-            </div>
-        </li>
-      </ul>
-    </span>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-black dropdown-menu-lg-right" aria-labelledby="login-menu">
+            <a class="dropdown-item text-light" href="/home">Домашняя</a>
+            <a class="dropdown-item text-danger" href="/template/logout.php">Выйти</a>
+          </div>
+
+      </li>
+    </ul>
 
     
     <?php endif; ?>
