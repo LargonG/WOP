@@ -114,7 +114,6 @@
                         }
 
                         //обрезка до квадрата относительно центра
-                        $im = null;
                         if ($avatar_extension == "jpg" or $avatar_extension == "jpeg")
                             $im = imagecreatefromjpeg($_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension");
                         if ($avatar_extension == "png")
@@ -124,11 +123,17 @@
                         $size = min(imagesx($im), imagesy($im));
                         $x = (imagesx($im) - $size) / 2;
                         $y = (imagesy($im) - $size) / 2;
-                        $im2 = imagecrop($im, ['x' => $x, 'y' => $y, 'width' => $size, 'height' => $size]);
-                        if ($im2 !== FALSE)
+                        $im = imagecrop($im, ['x' => $x, 'y' => $y, 'width' => $size, 'height' => $size]);
+
+                        //изменение размера до квадрата со стороной $av_size
+                        $av_size = 256;
+                        $im1 = imagecreatetruecolor(imagesx($im), imagesy($im));
+                        imagecopyresampled($im1, $im, 0, 0, 0, 0, $av_size, $av_size, imagesx($im), imagesy($im));
+                        $im1 = imagecrop($im1, ['x' => 0, 'y' => 0, 'width' => $av_size, 'height' => $av_size]);
+                        if ($im1 !== FALSE)
                         {
-                            imagepng($im2, $_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension");
-                            imagedestroy($im2);
+                            imagepng($im1, $_SERVER['DOCUMENT_ROOT']."/avatars/".$_USER["id"].".$avatar_extension");
+                            imagedestroy($im1);
                         }
                         imagedestroy($im);
                     }
