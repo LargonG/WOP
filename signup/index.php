@@ -1,4 +1,4 @@
-<?php require 'createprof.php';?>
+<?php require 'createProfile.php';?>
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
