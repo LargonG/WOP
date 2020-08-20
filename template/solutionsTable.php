@@ -54,7 +54,7 @@ if (isset($username) and count($user_submits) != 0):
             <td><a class="text-primary" href="#"><?php echo $problem_title; ?></a></td>
             <td><?php echo $languages[$i->lang]; ?></td>
             <td style="color: <?php if ($submit_status == "OK") echo "mediumseagreen;"; else if ($submit_status == "Тестируется...") echo "lemonchiffon;"; else echo "crimson;"; ?>" title="<?php if ($submit_status != "OK" and $submit_status != "Тестируется...") {$report_exp = array("WA" => "Неправильный ответ на ", "TL" => "Превышено время выполнения на ", "ML" => "Превышено ограничение по памяти на "); $sub_split = explode(" ", $submit_status); echo $report_exp[$sub_split[0]].$sub_split[1]." тесте";} else echo $submit_status;?>"><?php echo $submit_status; ?></td>
-            <?php if ($i->status != "Testing"): ?>
+            <?php if ($i->status != "Testing" && $i->status != "CE"): ?>
             <td><?php echo $max_time; ?></td>
             <td><?php echo $max_memory; ?></td>
             <?php else: ?>
