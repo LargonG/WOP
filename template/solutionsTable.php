@@ -5,7 +5,7 @@ if (isset($_COOKIE['token']))
     $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
     $user_id = R::findOne("userlogindata", "username = ?", array($username))->id;
     $user_submits = array_reverse(R::find("submits$problem_id", "sender_id = ?", array($user_id)));
-    $problem_title = R::findOne("problems", "id = ?", array($problem_id))->name;
+    $problem_title = R::findOne("problems", "id = ?", array($problem_id))->title;
 }
 if (isset($username) and count($user_submits) != 0):
 ?>
