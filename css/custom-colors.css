@@ -10,3 +10,12 @@
     -webkit-filter: invert(100%); /* Safari/Chrome */
     filter: invert(100%);
 }
+
+.dropdown-menu-black {
+    background-color: #242424;
+    border: .1rem solid gray;
+}
+
+.dropdown-menu-black>a:hover {
+    background-color: #343434;
+}

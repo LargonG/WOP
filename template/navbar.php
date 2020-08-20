@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php"; if (isset($_COOKIE['token'])) $username = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT']."/database/dbase.php"; ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <a class="navbar-brand" href="/">ProfiHard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
       <!-- Список закончен -->
 
       <!-- Пользователь не авторизирован -->
-      <?php if (!$username): ?>
+      <?php if (!$_USER["NAME"]): ?>
 
       <!-- Ссылка авторизации -->
       <!-- Показывается только тогда, когда экран меньше среднего (телефон, планшет) -->
@@ -49,7 +49,7 @@
     </ul>
 
     <!-- Пользователь не авторизирован -->
-    <?php if (!$username): ?>
+    <?php if (!$_USER["NAME"]): ?>
     
     <!-- Кнопка видна с компьютеров, когда экран не меньше среднего -->
     <button type="button" class="btn btn-secondary d-none d-md-block" data-toggle="modal" data-target="#signin">
@@ -123,13 +123,24 @@
     <!-- Пользователь авторизирован -->
     <?php else: ?>
     
-    <!-- Что-то непонятное -->
+    <!-- Линия, которая отображается в случае, когда navbar свёрнут -->
     <span class="d-block d-md-none border-top border-secondary"></span>
-    <span class="navbar-text font-italic h5" align=center>
-      <a href="/home">
-        <?php echo $username; ?>
-      </a>
+
+    <span class="navbar-text font-italic font-weight-bold">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php echo $_USER["NAME"]; ?>
+            </a>
+            <div class="dropdown-menu dropdown-menu-black dropdown-menu-lg-right" aria-labelledby="login-menu">
+              <a class="dropdown-item" href="/home">Домашняя</a>
+              <a class="dropdown-item text-danger" href="/template/logout.php">Выйти</a>
+            </div>
+        </li>
+      </ul>
     </span>
+
     
     <?php endif; ?>
 
