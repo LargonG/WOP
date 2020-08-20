@@ -23,9 +23,6 @@
             <!-- Список языков для сдачи -->
             <div class="col-12 p-0">
                 <select name="lang" class="custom-select bg-code text-light">
-                    <!-- Тут по идее список должен формироваться через php -->
-                    <!--Зачем здесь PHP если список будет фиксированный?-->
-                    <!-- Чтобы без труда добавлять новые языки:D -->
                     <option value="cpp" selected >C++</option>
                     <option value="java">Java</option>
                     <option value="c">C</option>

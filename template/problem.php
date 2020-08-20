@@ -5,7 +5,7 @@
                 <?php require "text.html" ?>
             </div>
             <?php require $_SERVER["DOCUMENT_ROOT"]."/template/submitTask.php"; ?>
-            <?php require $_SERVER["DOCUMENT_ROOT"]."/template/solutions-table.php"; ?>
+            <?php require $_SERVER["DOCUMENT_ROOT"]."/template/solutionsTable.php"; ?>
         </div>
     </div>
 </div>
