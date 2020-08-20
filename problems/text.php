@@ -7,6 +7,7 @@ else
 $problems = R::find("problems", "id > ? AND id <= ?", array(($page_number - 1)*100, 100*$page_number));
 ?>
 <table class="table table-dark bg-dark table-hover table-striped table-sm m-0">
+
     <!-- Заголовки -->
     <thead>
         <tr>
@@ -17,9 +18,8 @@ $problems = R::find("problems", "id > ? AND id <= ?", array(($page_number - 1)*1
         </tr>
     </thead>
     
-    <!-- Попытки -->
+    <!-- Задачи -->
     <tbody>
-        <!-- Сюда вставляем попытки-->
 
         <!-- Экземпляр -->
         <?php foreach ($problems as $i): ?>
