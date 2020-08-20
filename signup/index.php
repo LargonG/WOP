@@ -59,7 +59,7 @@
               <label for="email">Email</label>
               
               <input class="form-control <?php echo $issues["email-error"] ? "is-invalid" : "" ?>" 
-              type="text" name="email" id="email" value="<?php echo @$_POST['email']; ?>"
+              type="email" name="email" id="email" value="<?php echo @$_POST['email']; ?>"
                 placeholder="E-mail" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
                 aria-describedby="emailHelp">
               
