@@ -1,6 +1,6 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT'].'/database/dbase.php';
-    require $_SERVER['DOCUMENT_ROOT']."/set_online.php";
+    require $_SERVER['DOCUMENT_ROOT']."/setOnline.php";
     $nickname = R::findOne('tokens', 'token = ?', array($_COOKIE['token']))->username;
     $user_userlogindata = R::findOne('userlogindata', 'username = ?', array($nickname));
     $user_profiledata = R::findOne('profiledata', 'id = ?', array($user_userlogindata->id));

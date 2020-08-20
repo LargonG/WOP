@@ -5,7 +5,7 @@
     <title> Алгоритмы | Мир олимпиадного программирования</title>
   </head>
   <body>
-
+    <!-- Кажется, тут не хватает 'require setOnline.php' -->
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/navbar.php' ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/main.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer.php" ?>

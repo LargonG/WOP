@@ -5,7 +5,7 @@
     <title>Задачи | Мир олимпиадного программирования</title>
   </head>
   <body>
-    <?php require $_SERVER['DOCUMENT_ROOT']."/set_online.php";?>
+    <?php require $_SERVER['DOCUMENT_ROOT']."/setOnline.php";?>
     <?php require $_SERVER['DOCUMENT_ROOT'].'/template/navbar.php' ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/main.php" ?>
     <?php require $_SERVER['DOCUMENT_ROOT']."/template/footer.php" ?>
