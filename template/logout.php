@@ -1,9 +1,8 @@
 <?php
 //не трогать, мое
-if (isset($_COOKIE['name']))
-{
-    unset($_COOKIE['name']); 
-    setcookie('name', null, -1, '/');
+if (isset($_COOKIE['token'])) {
+    unset($_COOKIE['token']);
+    setcookie("token", null, -1, '/');
 }
 
 if (isset($_COOKIE['logsuccess']))
